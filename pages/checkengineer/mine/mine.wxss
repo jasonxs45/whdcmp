@@ -1,0 +1,132 @@
+.mine {
+}
+
+.mine .top {
+  background: #004294;
+  /* height: 360rpx; */
+  padding: 30rpx;
+}
+
+.mine .vm {
+  text-align: center;
+}
+
+.mine .avatar {
+  display: inline-block;
+  width: 120rpx;
+  height: 120rpx;
+  border: 2rpx solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.mine .info {
+  padding: 30rpx;
+}
+
+.mine .my-score {
+  margin-top: 20rpx;
+}
+
+.mine .my-score text {
+  margin-left: 10rpx;
+  font-size: 26rpx;
+  color: #fff;
+  vertical-align: top;
+  display: inline-block;
+  line-height: 28rpx;
+}
+
+.mine .name {
+  font-size: 30rpx;
+  color: #fff;
+}
+
+.mine .flex.plr {
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+}
+
+.mine .flex .flex-item {
+  flex: 1;
+  text-align: center;
+  font-size: 26rpx;
+  font-weight: 200;
+}
+
+.mine .flex .flex-item .count {
+  display: block;
+  font-size: 52rpx;
+  font-weight: normal;
+  margin: 30rpx;
+  color: #666;
+}
+
+.mine .login {
+  color: #fff;
+  border-color: #fff;
+  margin-top: 15rpx;
+}
+
+.mine .section {
+  padding: 30rpx;
+  background: #fff;
+  margin: 20rpx 0;
+}
+
+.mine .section:first-child {
+  margin-top: 0;
+}
+
+.mine .section .title {
+  font-size: 28rpx;
+  color: #999;
+}
+
+.before-use {
+  color: #fff;
+  font-size: 24rpx;
+}
+
+.bottom-tab {
+  background: #f7f7fa;
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  border-top: 1rpx solid #ccc;
+  color: #888;
+  font-size: 20rpx;
+  display:flex;
+}
+.bottom-tab .navigator{
+  flex:1;
+  text-align: center;
+}
+.bottom-tab .navigator image{
+  width:48rpx;
+  height: 48rpx;
+  margin-top: 15rpx;
+  margin-bottom: 8rpx;
+}
+.bottom-tab .navigator.active{
+  color:#004294;
+}
+
+.mine .bottom-tab + .container {
+  padding-bottom: 100rpx;
+}
+
+.check-button {
+  background: #004294;
+  display: block;
+  width: 680rpx;
+  height: 100rpx;
+  font-size: 30rpx;
+  line-height: 100rpx;
+  border-radius: 6rpx;
+  color: #fff;
+  text-align: center;
+  margin: 100rpx auto 0;
+  box-shadow: 1rpx 1rpx 2rpx 0 rgba(0, 0, 0, 0.2);
+}

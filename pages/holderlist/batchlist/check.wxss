@@ -1,0 +1,140 @@
+.check{
+  height: 100vh;
+  overflow: hidden;
+}
+.tabnav{
+  position: fixed;
+  width:100%;
+  height: 90rpx;
+  top:0;
+  left:0;
+  display: flex;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
+  background: #fff;
+  z-index:10;
+}
+.tabnav-item{
+  flex:1;
+  text-align: center;
+  font-size: 28rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  color:#888;
+}
+.tabnav-item.active{
+  color:#333;
+}
+.tabnav .movebar{
+  position: absolute;
+  height: 5rpx;
+  width: 50%;
+  bottom:0;
+  background: #004294;
+  transition: all .2s;
+}
+.bottom-tab {
+  background: #f7f7fa;
+  width: 100%;
+  height: 100rpx;
+  position: fixed;
+  bottom: 0;
+  border-top: 1rpx solid #ccc;
+  color: #888;
+  font-size: 20rpx;
+  display:flex;
+}
+.bottom-tab .navigator{
+  flex:1;
+  text-align: center;
+}
+.bottom-tab .navigator image{
+  width:48rpx;
+  height: 48rpx;
+  margin-top: 15rpx;
+  margin-bottom: 8rpx;
+}
+.bottom-tab .navigator.active{
+  color:#004294;
+}
+
+.bottom-tab + .check-wrapper {
+  padding-bottom: 100rpx;
+}
+.check-wrapper{
+  width: 100%;
+  height: 100%;
+  padding-top: 90rpx;
+}
+.swiper{
+  height: 100%;
+  position: relative;
+}
+.card{
+  background: #fff;
+  margin:20rpx 0;
+}
+.check-wrapper .content{
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.check-wrapper .loading{
+  position: absolute;
+  top: 50rpx;
+  width:100%;
+}
+.card-header{
+  padding: 30rpx;
+  position: relative;
+  font-size: 0;
+}
+.card-header::after{
+  content: '';
+  display: block;
+  position: absolute; 
+  height:1rpx;
+  width:100%;
+  left:0;
+  top:100%;
+  background: #ddd;
+}
+.card-header .icon{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+.card-header .title{
+  font-size: 24rpx;
+  color:#333;
+  font-weight: 200;
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 6rpx;
+  line-height: 1.5;
+}
+.card-body {
+  padding: 30rpx;
+}
+.card-body .building-item{
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.card-body .building-item:first-child{
+  margin-top: 0;
+}
+.card-body .wrapper{
+  flex:1;
+  font-size: 26rpx;
+  color: #333;
+}
+.card-body .get-detail{
+  font-size: 24rpx;
+  color: #004294;
+  border-color: #004294;
+  flex: 0 0 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+}

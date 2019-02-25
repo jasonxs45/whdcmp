@@ -1,0 +1,68 @@
+<view class="accept-detail">
+  <view class="title">房产信息</view>
+  <view class="section">
+    <view class="p">房产：{{content.tage}}</view>
+    <view class="p">业主：{{content.OwnerName}}</view>
+  </view>
+  <view class="title">房间问题</view>
+  <view class="section">
+    <view class="flex p p1" wx:for="{{content.TroubleList}}" wx:key='{{item}}' data-pid="{{item.ID}}" data-statu="{{item.Statu}}" bindtap="goProblemDetail">
+      <view class="fh">
+        <view class="main">
+          <text>{{item.Part}}</text>
+          <text>{{item.PartRes}}</text>
+        </view>
+        <view class="sub">{{item.PartResTrouble}}</view>
+      </view>
+      <view class="fb" style="color:{{colorMap[item.Statu]}}">
+        {{item.Statu}}
+      </view>
+    </view>
+    <view class="flex p p1" wx:if="{{content.TroubleList.length < 1}}">
+      <view class="fh">
+        <view class="main">
+          <text>暂无</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <block wx:if="{{content.Deliver}}">
+    <view class="title">验房信息</view>
+    <view class="section">
+      <view class="flex p p2">
+        <view class="fh">电表底数</view>
+        <view class="fb">{{content.Deliver.ElectricMeterDegree}}度</view>
+      </view>
+      <view class="flex p p2">
+        <view class="fh">水表底数</view>
+        <view class="fb">{{content.Deliver.WaterMeterDegree}}立方</view>
+      </view>
+      <view class="flex p p2">
+        <view class="fh">气表底数</view>
+        <view class="fb">{{content.Deliver.GasMeterDegree}}立方</view>
+      </view>
+      <view class="flex p p2">
+        <view class="fh">是否留钥匙</view>
+        <view class="fb">{{content.Deliver.Keys}}</view>
+      </view>
+      <view class="flex p p2">
+        <view class="fh">业主签名</view>
+        <view class="fb">
+          <image src="{{content.Deliver.Autograph}}" mode="widthFix"></image>
+        </view>
+      </view>
+    </view>
+    <view class="title">工程师信息</view>
+    <view class="section">
+      <view class="flex p p2">
+        <view class="fh">验房工程师：</view>
+        <view class="fb">{{content.Deliver.Staff.Name}}</view>
+      </view>
+      <view class="flex p p2">
+        <view class="fh">联系电话：</view>
+        <view class="fb" data-tel="{{content.Deliver.Staff.Tel}}" bindtap="teleCall">{{content.Deliver.Staff.Tel}}</view>
+      </view>
+    </view>
+  </block>
+  <button wx:if="{{store.roleInfo.Type==='验房管理员' && !content.Deliver}}" class="go-accept" bindtap='goAccept'>验房确认</button>
+</view>

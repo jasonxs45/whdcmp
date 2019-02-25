@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "split": "/components/split/split",
+    "no-data": "/components/nodata/no-data",
+    "pdloading": "/components/pdloading/pdloading"
+  }
+}

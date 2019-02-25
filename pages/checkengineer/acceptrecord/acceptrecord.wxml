@@ -1,0 +1,17 @@
+<view class="accept-record">
+  <view wx:for="{{list}}" wx:key="{{item}}" class="card" data-id="1" bindtap="goDetail">
+    <view class="title">武汉地产某某楼盘一期二栋3单元1302</view>
+    <view class="flex p">
+      <view class="fh">业主：</view>
+      <view class="fb">万恒</view>
+    </view>
+    <view class="flex p">
+      <view class="fh">工程师：</view>
+      <view class="fb">王小田</view>
+    </view>
+    <view class="flex p">
+      <view class="fh">收房日期：</view>
+      <view class="fb">2018710</view>
+    </view>
+  </view>
+</view>

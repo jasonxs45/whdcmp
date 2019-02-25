@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "问题列表",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 30,
+  "usingComponents": {
+    "aside": "/components/aside/aside",
+    "split": "/components/split/split",
+    "no-data": "/components/nodata/no-data",
+    "pdloading": "/components/pdloading/pdloading"
+  }
+}

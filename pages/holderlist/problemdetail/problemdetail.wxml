@@ -1,0 +1,146 @@
+<view class="problem-detail">
+  <no-data wx:if="{{!content}}"></no-data>
+  <block wx:else>
+    <view class="problem-detail-wrapper {{status === '未受理' || status === '处理中' || status === '申请拒绝' ? 'pb' : ''}}">
+      <view class="section">
+        <view class="mark">{{status}}</view>
+      </view>
+      <view class="section">
+        <view class="title">{{content.troubleinfo.HouseNum}}</view>
+        <view class="date">{{content.troubleinfo.AddTime}}</view>
+        <split split-type="line" />
+        <view class="flex p">
+          <view class="fh">部位：</view>
+          <view class="fb">{{content.troubleinfo.Part}}</view>
+        </view>
+        <view class="flex p">
+          <view class="fh">部品：</view>
+          <view class="fb">{{content.troubleinfo.PartRes}}</view>
+        </view>
+        <view class="flex p">
+          <view class="fh">问题：</view>
+          <view class="fb">{{content.troubleinfo.PartResTrouble}}</view>
+        </view>
+        <view class="flex p">
+          <view class="fh">描述：</view>
+          <view class="fb">{{content.troubleinfo.Description}}</view>
+        </view>
+        <split split-type="line" />
+        <view wx:if="{{content.troubleinfo.ScenePicture.length > 0}}" class="img-group">
+          <view class="title">整改前照片</view>
+          <view class="img-row">
+            <view wx:for="{{content.troubleinfo.ScenePicture}}" wx:key="{{item}}" class="img-wrapper">
+              <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{content.troubleinfo.ScenePicture}}" bindtap="preview" />
+            </view>
+          </view>
+        </view>
+        <block wx:if="{{status === '处理中'}}">
+          <view class="img-group">
+            <view class="title">请上传整改后的照片</view>
+            <view class="img-row">
+              <view wx:for="{{uploadImages}}" wx:key="{{item}}" class="img-wrapper">
+                <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{uploadImages}}" bindtap="preview" />
+                <icon data-index="{{index}}" type="clear" size="20" class="clear" color="red" bindtap="removeImage" />
+              </view>
+              <view wx:if="{{uploadImages.length < 5}}" class="img-wrapper">
+                <image class="uploadbtn" src="../../../images/uploadbtn.png" bindtap="chooseImage" />
+              </view>
+            </view>
+          </view>
+          <textarea class="pass-info" bindinput='handleBoxChange' value="{{handleReason}}" placeholder='请输入通过处理的说明'></textarea>
+        </block>
+        <view wx:if="{{content.troubleinfo.FinishPicture.length > 0}}" class="img-group">
+          <view class="title">整改后照片</view>
+          <view class="img-row">
+            <view wx:for="{{content.troubleinfo.FinishPicture}}" wx:key="{{item}}" class="img-wrapper">
+              <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{content.troubleinfo.FinishPicture}}" bindtap="preview" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="section">
+        <view class="flex p p1">
+          <view class="fh">验房管理员：</view>
+          <view class="fb">{{content.troubleinfo.AddStaffName}}</view>
+        </view>
+        <view class="flex p p1">
+          <view class="fh">联系方式：</view>
+          <view class="fb" data-tel="{{content.troubleinfo.AddStaffTel}}" bindtap='teleCall'>{{content.troubleinfo.AddStaffTel}}</view>
+        </view>
+      </view>
+      <view wx:if="{{content.relist.length}}" class="section">
+        <view class="title">处理记录</view>
+        <view class="history" wx:for="{{content.relist}}" wx:key="{{item}}">
+          <view class="flex p p3">
+            <view class="fh">操作类型：</view>
+            <view class="fb">{{item.Types}}</view>
+          </view>
+          <view wx:if="{{item.Desc}}" class="flex p p3">
+            <view class="fh">拒单原因：</view>
+            <view class="fb">{{item.Desc}}</view>
+          </view>
+          <view wx:if="{{item.Contents}}" class="flex p p3">
+            <view class="fh">描述：</view>
+            <view class="fb">{{item.Contents}}</view>
+          </view>
+          <view class="flex p p3">
+            <view class="fh">处理时间：</view>
+            <view class="fb">{{item.AddTime}}</view>
+          </view>
+          <view class="flex p p3">
+            <view class="fh">提交人：</view>
+            <view class="fb">{{item.StaffName}}</view>
+          </view>
+          <view class="flex p p3">
+            <view class="fh">联系方式：</view>
+            <view class="fb">
+              <text data-tel="{{item.Tel}}" bindtap='teleCall'>{{item.Tel}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{status === '未受理' || status === '处理中' || status === '申请拒绝'}}" class="btn-area">
+      <block wx:if="{{status === '未受理'}}">
+        <button class="refuse" data-tid="{{id}}" bindtap='openRefuse'>拒绝</button>
+        <button class="accept" data-tid="{{id}}" bindtap='getHandle'>受理</button>
+      </block>
+      <button wx:if="{{status === '处理中'}}" class="accept" data-tid="{{id}}" bindtap='getFinish'>已处理</button>
+      <button wx:if="{{status === '申请拒绝'}}" class="accept" data-tid="{{id}}" bindtap='getReset'>恢复并受理</button>
+    </view>
+  </block>
+</view>
+<view hidden='{{!showForm}}' class="refuse-form">
+  <view class="bg"></view>
+  <view class="refuse-form-wrapper">
+    <view class="panel">
+      <view class="panel-head">
+        <image src="../../../images/top.png" mode="widthFix" />
+        <view class="tit">拒绝受理</view>
+      </view>
+      <view class="panel-body">
+        <picker bindchange="pickerChange" value="{{reasonIndex}}" range="{{reasons}}" range-key='Desc'>
+          <view class="picker">
+            请选择理由：{{reasons[reasonIndex].Desc}}
+          </view>
+        </picker>
+        <view class="textarea">
+          <textarea wx:if='{{showForm}}' placeholder='请补充具体原因' bindinput='textareaChange'></textarea>
+        </view>
+      </view>
+      <view class="panel-foot">
+        <view class="cancel" plain bindtap="closeRefuse">取消</view>
+        <view class="confirm" plain bindtap="getRefuse">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view hidden='{{!handleBoxShow}}' class="handle-box">
+  <view class="wrapper">
+    <textarea bindinput='handleBoxChange' value="{{handleReason}}" placeholder='请输入通过处理的说明'></textarea>
+  </view>
+  <view class="btns">
+    <button class="no" bindtap='closeHandleBox'>取消</button>
+    <button class="yes" bindtap='getFinish'>确定</button>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'iconfont';  /* project id 715640 */
+  src: url('//at.alicdn.com/t/font_715640_c41vq3vs6y.eot');
+  src: url('//at.alicdn.com/t/font_715640_c41vq3vs6y.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_715640_c41vq3vs6y.woff') format('woff'),
+  url('//at.alicdn.com/t/font_715640_c41vq3vs6y.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_715640_c41vq3vs6y.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:16px;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-weibiao45127:before { content: "\e631"; }
+
+.icon-set:before { content: "\e61e"; }
+
+.icon-user:before { content: "\e619"; }
+

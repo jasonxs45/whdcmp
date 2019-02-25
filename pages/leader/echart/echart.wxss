@@ -1,0 +1,37 @@
+.main-title{
+  font-size: 28rpx;
+  background: #fff;
+  text-align: center;
+  padding:20rpx 30rpx;
+  color: #333;
+  font-weight: 200;
+}
+.section {
+  padding: 30rpx;
+  background: #fff;
+  margin: 20rpx 0;
+}
+.section:first-child {
+  margin-top: 0;
+}
+.section .title {
+  font-size: 28rpx;
+  color: #999;
+}
+.trouble-bar, .house-bar, .holder-bar, .part-bar{
+  width: 100%;
+  height: 500rpx;
+  display: flex;
+  padding:0 20rpx;
+  margin-top: 30rpx;
+}
+.house-bar, .holder-bar {
+  height: 400rpx;
+}
+.holder-bar {
+  height: 500rpx;
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+}

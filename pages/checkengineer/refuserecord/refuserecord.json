@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "暂不接收记录",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "no-data": "/components/nodata/no-data"
+  }
+}

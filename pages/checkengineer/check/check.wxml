@@ -1,0 +1,43 @@
+<view class="check">
+  <view class="tabnav">
+    <view wx:for="{{tabMenus}}" wx:for-item="nav" wx:for-index="idx" wx:key="nav+{{idx}}" class="tabnav-item {{activeTabIndex === idx ? 'active' : ''}}" data-index="{{idx}}" bindtap="tabChangeHandler">
+      {{nav.name}}
+    </view>
+    <view class="movebar" style="{{moveBarStyle}}"></view>
+  </view>
+  <!-- <view class="bottom-tab">
+    <view class="navigator active">
+      <image src="../../../images/check-h.png"></image>
+      <view>验房</view>
+    </view>
+    <view class="navigator" bindtap="toMine">
+      <image src="../../../images/mine.png"></image>
+      <view>我</view>
+    </view>
+  </view> -->
+  <view class="check-wrapper">
+    <pdloading hidden="{{!pulldown}}" class="loading" />
+    <swiper class="swiper" duration="300" current="{{activeTabIndex}}" bindchange="swiperChangeHandler">
+      <swiper-item wx:for="{{tabMenus}}" wx:for-item="sw" wx:for-index="idx" wx:key="swiper+{{idx}}">
+        <view wx:if="{{list[sw.target].length > 0}}" class="content" scroll-y="true">
+          <view wx:for="{{list[sw.target]}}" wx:key="{{Math.random().toString(36).substr(2)}}" class="card">
+            <view class="card-header">
+              <image class="icon" src="{{'../../../images/' + (sw.target === 'mock' ? 'mock':'formal')+'.png'}}">
+              </image>
+              <text class="title">{{item.Title}}</text>
+            </view>
+            <view class="card-body">
+              <view wx:for="{{item.infolosts}}" wx:for-item="building" wx:key="{{building}}" class="building-item">
+                <view class="wrapper">
+                  {{building.name}}栋
+                </view>
+                <button data-batchid="{{item.ID}}" data-building="{{building.id}}" data-name="{{building.name}}" class="get-detail" size="mini" plain bindtap="getDetail">查看</button>
+              </view>
+            </view>
+          </view>
+        </view>
+        <no-data wx:else />
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

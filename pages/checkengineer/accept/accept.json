@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "验房信息",
+  "usingComponents": {
+    "star": "/components/star/star"
+  }
+}

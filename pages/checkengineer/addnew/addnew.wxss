@@ -1,0 +1,84 @@
+.addnew{
+  padding-bottom: 30rpx;
+}
+.section{
+  background: #fff;
+  margin:20rpx 0;
+}
+.addnew .picker{
+  font-size: 28rpx;
+  height: 96rpx;
+  border-bottom: 1rpx solid #ddd;
+  line-height: 96rpx;
+  padding:0 30rpx;
+}
+.addnew .picker:last-child{
+  border-bottom: none;
+}
+.addnew .picker .flex{
+  align-items: center;
+}
+.addnew .picker .icon{
+  display: block;
+  width: 36rpx;
+  height: 36rpx;
+}
+.addnew .picker .h{
+  width: 100rpx;
+}
+.addnew .picker .b{
+  flex: 1;
+  text-align: right;
+  padding-right: 20rpx;
+}
+.addnew .textarea{
+  font-size: 28rpx;
+  padding:30rpx;
+}
+.addnew .img-group{
+  padding: 0 30rpx;
+}
+.addnew .img-group .img-row{
+  margin-left: -10rpx;
+  margin-right: -10rpx;
+  padding:0 0 20rpx;
+}
+.addnew .img-group .img-wrapper{
+  width: 120rpx;
+  height: 120rpx;
+  margin: 10rpx;
+  position: relative;
+  display: inline-block;
+}
+.addnew .img-wrapper image{
+  width:100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.addnew .img-wrapper .clear{
+  position: absolute;
+  top: -10rpx;
+  right:-10rpx;
+}
+.addnew .uploadbtn{
+  width:100%;
+  height: 100%;
+}
+.addnew .title{
+  padding:30rpx;
+  font-size: 28rpx;
+  color:#333;
+}
+.addnew .submit{
+  width:680rpx;
+  height: 90rpx;
+  background: #004294;
+  color:#fff;
+  margin-top: 100rpx;
+  margin-bottom: 60rpx;
+}
+.fetchAgain{
+  width: 600rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}

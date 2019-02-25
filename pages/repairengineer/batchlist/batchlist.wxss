@@ -1,0 +1,138 @@
+.bacth-list {
+}
+.fkbar{
+  font-size: 0
+}
+.tab-nav {
+  position: fixed;
+  top: 0;
+  width: 74%;
+  height: 90rpx;
+  z-index: 11;
+  background: #fff;
+  display: flex;
+}
+.change-mode{
+  position: fixed;
+  top:0;
+  right: 0;
+  width: 26%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #fff;
+  font-size: 24rpx;
+  color:#004294;
+  text-align: center;
+  text-decoration: underline;
+  border-left: 1rpx solid #ddd;
+}
+
+.tabnav-item {
+  flex: 1;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 28rpx;
+  color: #888;
+}
+
+.tabnav-item.active {
+  color: #333;
+}
+
+.tab-nav .movebar {
+  position: absolute;
+  height: 5rpx;
+  width: 50%;
+  bottom: 0;
+  background: #004294;
+  transition: all 0.2s;
+}
+
+.tab-nav + .container {
+  padding-top: 90rpx;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  padding-top: 90rpx;
+}
+.container .loading{
+  position: absolute;
+  top: 50rpx;
+  width:100%;
+}
+.container .swiper{
+  height: 100%;
+}
+.card{
+  background: #fff;
+  margin:20rpx 0;
+}
+.card-header{
+  padding: 30rpx;
+  position: relative;
+  align-items: center;
+}
+.card-header .fh{
+  flex:1;
+}
+.card-header .fb{
+  width:150rpx;
+  text-align: right;
+  font-size: 22rpx;
+  color:#333;
+  font-weight: 200;
+}
+.card-header::after{
+  content: '';
+  display: block;
+  position: absolute; 
+  height:1rpx;
+  width:100%;
+  left:0;
+  top:100%;
+  background: #ddd;
+}
+.card-header .icon{
+  width: 36rpx;
+  height: 36rpx;
+  margin-right: 10rpx;
+}
+.card-header .title{
+  font-size: 24rpx;
+  color:#333;
+  font-weight: 200;
+  display: inline-block;
+  vertical-align: top;
+  padding-top: 6rpx;
+  line-height: 1.5;
+}
+.card-body {
+  padding: 15rpx 30rpx;
+}
+.card-body .building-item{
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+.card-body .building-item:first-child{
+  margin-top: 0;
+}
+.card-body .wrapper{
+  flex:1;
+  font-size: 26rpx;
+  color: #333;
+}
+.card-body .wrapper .btns{
+  margin-left: -15rpx;
+  margin-right: -15rpx;
+}
+.card-body .wrapper .btn{
+  margin: 15rpx;
+  width:152rpx;
+  padding: 10rpx 0;
+  font-size: 22rpx;
+}

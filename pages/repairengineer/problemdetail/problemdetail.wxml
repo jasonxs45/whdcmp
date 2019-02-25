@@ -1,0 +1,151 @@
+<view class="problem-detail">
+  <no-data wx:if="{{!content}}"></no-data>
+  <block wx:else>
+    <view class="problem-detail-wrapper {{status === '申请拒绝' || status === '处理中' || status === '已处理' ? 'pb' : ''}}">
+      <view class="section">
+        <view class="mark">{{status}}</view>
+      </view>
+      <view class="section">
+        <view class="title">{{content.troubleinfo.HouseNum}}</view>
+        <view class="date">{{content.troubleinfo.AddTime}}</view>
+        <split split-type="line" />
+        <view class="flex p">
+          <view class="fh">部位：</view>
+          <view class="fb">{{content.troubleinfo.Part}}</view>
+        </view>
+        <view class="flex p">
+          <view class="fh">部品：</view>
+          <view class="fb">{{content.troubleinfo.PartRes}}</view>
+        </view>
+        <view class="flex p">
+          <view class="fh">问题：</view>
+          <view class="fb">{{content.troubleinfo.PartResTrouble}}</view>
+        </view>
+        <view class="flex p">
+          <view class="fh">描述：</view>
+          <view class="fb">{{content.troubleinfo.Description}}</view>
+        </view>
+        <split style="margin-top:30rpx" split-type="line" />
+        <view wx:if="{{content.troubleinfo.ScenePicture.length > 0}}" class="img-group">
+          <view class="title">整改前照片</view>
+          <view class="img-row">
+            <view wx:for="{{content.troubleinfo.ScenePicture}}" wx:key="{{item}}" class="img-wrapper">
+              <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{content.troubleinfo.ScenePicture}}" bindtap="preview" />
+            </view>
+          </view>
+        </view>
+        <view wx:if="{{content.troubleinfo.FinishPicture.length > 0}}" class="img-group">
+          <view class="title">整改后照片</view>
+          <view class="img-row">
+            <view wx:for="{{content.troubleinfo.FinishPicture}}" wx:key="{{item}}" class="img-wrapper">
+              <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{content.troubleinfo.FinishPicture}}" bindtap="preview" />
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="section">
+        <view class="flex p p1">
+          <view class="fh">验房管理员：</view>
+          <view class="fb">{{content.troubleinfo.AddStaffName}}</view>
+        </view>
+        <view class="flex p p1" style='display:none'>
+          <view class="fh">联系方式：</view>
+          <view class="fb" data-tel="{{content.troubleinfo.AddStaffTel}}" bindtap='teleCall'>{{content.troubleinfo.AddStaffTel}}</view>
+        </view>
+      </view>
+      <view wx:if="{{content.relist.length}}" class="section">
+        <view class="title">处理记录</view>
+        <view class="history" wx:for="{{content.relist}}" wx:key="{{item}}">
+          <view class="flex p p3">
+            <view class="fh">操作类型：</view>
+            <view class="fb">{{item.Types}}</view>
+          </view>
+          <view wx:if="{{item.Desc}}" class="flex p p3">
+            <view class="fh">拒单原因：</view>
+            <view class="fb">{{item.Desc}}</view>
+          </view>
+          <view wx:if="{{item.Contents}}" class="flex p p3">
+            <view class="fh">描述：</view>
+            <view class="fb">{{item.Contents}}</view>
+          </view>
+          <view class="flex p p3">
+            <view class="fh">处理时间：</view>
+            <view class="fb">{{item.AddTime}}</view>
+          </view>
+          <view class="flex p p3">
+            <view class="fh">提交人：</view>
+            <view class="fb">{{item.StaffName}}</view>
+          </view>
+          <view class="flex p p3" style='display:none'>
+            <view class="fh">联系方式：</view>
+            <view class="fb">
+              <text data-tel="{{item.Tel}}" bindtap='teleCall'>{{item.Tel}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="btn-area">
+      <block wx:if="{{status === '未受理' || status === '处理中'}}">
+        <button wx:if="{{timeout}}" class="alertbtn" data-tid="{{item.TroubleID}}" catchtap='timeoutAlert'>超时提醒</button>
+      </block>
+      <block wx:if="{{status === '申请拒绝' || status === '处理中' || status === '已处理'}}">
+        <button class="refuse" data-tid="{{item.TroubleID}}" catchtap='openRefuse'>驳回</button>
+        <button class="refuse" data-tid="{{item.TroubleID}}" catchtap='openClose'>转至客服</button>
+        <button class="accept" data-tid="{{item.TroubleID}}" catchtap='gavinOther'>重新分配</button>
+      </block>
+    </view>
+  </block>
+</view>
+<!--驳回弹窗  -->
+<view hidden='{{!showForm}}' class="refuse-form">
+  <view class="bg"></view>
+  <view class="refuse-form-wrapper">
+    <view class="panel">
+      <view class="panel-head">
+        <image src="../../../images/top.png" mode="widthFix" />
+        <view class="tit">申请驳回</view>
+      </view>
+      <view class="panel-body">
+        <picker bindchange="pickerChange" value="{{refuseReasonIndex}}" range="{{refuseReasons}}" range-key='Desc'>
+          <view class="picker">
+            请选择理由：{{refuseReasons[refuseReasonIndex].Desc}}
+          </view>
+        </picker>
+        <view class="textarea">
+          <textarea wx:if='{{showForm}}' placeholder='请补充具体原因' bindinput='textareaChange'></textarea>
+        </view>
+      </view>
+      <view class="panel-foot">
+        <view class="cancel" plain bindtap="closeRefuse">取消</view>
+        <view class="confirm" plain bindtap="getRefuse">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--强制关闭弹窗  -->
+<view hidden='{{!showClose}}' class="refuse-form">
+  <view class="bg"></view>
+  <view class="refuse-form-wrapper">
+    <view class="panel">
+      <view class="panel-head">
+        <image src="../../../images/top.png" mode="widthFix" />
+        <view class="tit">转至客服</view>
+      </view>
+      <view class="panel-body">
+        <picker bindchange="pickerChange1" value="{{closeReasonIndex}}" range="{{closeReasons}}" range-key='Desc'>
+          <view class="picker">
+            请选择理由：{{closeReasons[closeReasonIndex].Desc}}
+          </view>
+        </picker>
+        <view class="textarea">
+          <textarea  wx:if='{{showClose}}' placeholder='请补充具体原因' bindinput='textareaChange1'></textarea>
+        </view>
+      </view>
+      <view class="panel-foot">
+        <view class="cancel" plain bindtap="closeClose">取消</view>
+        <view class="confirm" plain bindtap="getClose">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

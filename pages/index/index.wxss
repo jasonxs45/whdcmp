@@ -1,0 +1,49 @@
+page{
+  background: #fff;
+}
+.bg{
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.logo{
+  width: 360rpx;
+  display: block;
+  margin: 100rpx auto 0;
+}
+.btn-group{
+  margin-top: 282rpx;
+  flex-wrap:wrap;
+}
+.btn {
+  width: 330rpx;
+  height: 170rpx;
+  line-height: 170rpx;
+  background: #fff;
+  font-size: 30rpx;
+  box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.3);
+  margin: 30rpx auto;
+  border-radius: 4rpx;
+  color:#004294;
+}
+
+.btn::after {
+  border: none;
+  border-radius: inherit;
+}
+.icon{
+  width:92rpx;
+  vertical-align: middle;
+}
+.login-wrapper{
+  width: 100%;
+  text-align: center;
+}
+.login-wrapper .alert{
+  font-size: 32rpx;
+  color: #888;
+  margin-bottom: 60rpx;
+}

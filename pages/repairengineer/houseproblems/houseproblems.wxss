@@ -1,0 +1,24 @@
+page{
+  background: #fff;
+}
+.card-header{
+  padding:30rpx;
+  align-items: center;
+}
+.icon{
+  width: 30rpx;
+  height: 30rpx;
+}
+.title{
+  font-size: 26rpx;
+  color:#333;
+  line-height: 40rpx;
+  margin-left: 10rpx;
+}
+.btn{
+  margin: 30rpx;
+  border-radius: 4px;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.3);
+  padding: 50rpx 30rpx;
+  font-size: 28rpx;
+}

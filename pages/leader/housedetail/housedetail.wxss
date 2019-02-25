@@ -1,0 +1,173 @@
+.house-detail{width:100%}
+.info-bar{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 90rpx;
+  padding: 30rpx 30rpx 0;
+  background: #004294;
+  z-index: 10;
+}
+.info-bar .icon{
+  width: 28rpx;
+  height: 28rpx;
+}
+.info-bar .left,
+.info-bar .right{
+  display: inline-block;
+  color:#fff;
+  width: 50%;
+  font-size: 28rpx;
+  font-weight: 200;
+}
+.info-bar .left text{
+  font-size: 36rpx;
+  font-weight: 400;
+  vertical-align: middle;
+}
+.info-bar .right{
+  text-align: right;
+  float: right;
+  width:120rpx;
+}
+.info-bar .right[hidden]{
+  display: none;
+}
+.info-bar .right image,
+.info-bar .right text{
+  vertical-align: middle;
+  display: inline-block;
+}
+.category-bar{
+  width:100%;
+  height: 80rpx;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 2rpx 2rpx 0 rgba(0,0,0,.1);
+}
+.category-bar .category{
+  display: inline-block;
+  width: 33.333%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.category-bar .category .dot{
+  display: inline-block;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-left: -15rpx;
+}
+.category-bar .category .text{
+  font-size: 26rpx;
+  vertical-align: middle;
+}
+.footer{
+  position: fixed;
+  width:100%;
+  height: 98rpx;
+  bottom:0;
+  background: #fff;
+  display: flex;
+  box-shadow: 0 0 2rpx 0 rgba(0,0,0,.1);
+}
+.footer .add{
+  flex: 0 0 150rpx;
+  width: 150rpx;
+  height: 98rpx;
+  overflow: hidden;
+  transition: width,flex .2s;
+  text-align: center;
+  border-right:1rpx solid #ccc;
+}
+.footer .add.hide{
+  flex: 0 0 0;
+  width:0;
+  opacity: 0;
+  visibility: hidden;
+}
+.footer .add .text{
+  font-size: 20rpx;
+  display: block;
+  color: #999;
+  margin-top: 5rpx;
+}
+.footer .add .icon{
+  width:40rpx;
+  height:40rpx;
+  margin-top: 15rpx;
+}
+.footer .refuse,
+.footer .accept{
+  flex: 1;
+  text-align: center;
+  height: 98rpx;
+  line-height: 98rpx;
+  font-size: 28rpx;
+  transition: all .2s;
+}
+.footer .accept{
+  background: #004294;
+  color: #fff;
+}
+.content{
+  padding-top: 90rpx;
+  padding-bottom: 100rpx;
+}
+.category-bar + .content{
+  padding-top: 260rpx;
+}
+.picture-wrapper{
+}
+.picture-wrapper .tip{
+  text-align: center;
+  margin: 30rpx 0;
+  font-size: 26rpx;
+  color: #666;
+}
+.problems-wrapper{
+  height: 100%;
+  overflow-y: auto;
+}
+.problem{
+  background: #fff;
+  margin:20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+  border-left:10rpx solid transparent;
+  padding: 30rpx 20rpx 30rpx 14rpx;
+}
+.problem .p{
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 15rpx;
+  font-weight: 200;
+}
+.problem .p:first-child{
+  margin-top: 0;
+}
+.problem .p .ph{
+  width: 90rpx;
+  line-height: 1.4;
+}
+.problem .p .pb{
+  font-size: 24rpx;
+  color:#333;
+  font-weight: 400;
+  line-height: 1.4;
+}
+.picture{
+  position: relative;
+}
+.room-dot{
+  width: 62rpx;
+  height: 62rpx;
+  position: absolute;
+  margin-left: -32rpx;
+  margin-top:-32rpx;
+}

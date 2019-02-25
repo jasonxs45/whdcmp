@@ -1,0 +1,10 @@
+<view class="star-wrapper">
+  <image
+    class="{{classes}}"
+    wx:for="{{5}}"
+    wx:key="star-{{item}}"
+    data-index="{{index}}"
+    src="{{'../../images/star'+ (index < score ? 'on' : 'off') +'.png'}}"
+    bindtap="tapHandler"
+  />
+</view>

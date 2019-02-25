@@ -1,0 +1,11 @@
+/* components/split/split.wxss */
+.split{
+  display: block;
+  width: 100%;
+  height: inherit;
+  max-height: 10rpx;
+  background: #ddd;
+}
+.split.line{
+  height: 1rpx;
+}

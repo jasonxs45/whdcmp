@@ -1,0 +1,21 @@
+.star-wrapper{
+  display: inline-block;
+  line-height: 1;
+}
+.star{
+  display: inline-block;
+  width:60rpx;
+  height: 56rpx;
+  margin:0 10rpx;
+  line-height: 1;
+  vertical-align: top;
+  box-sizing: border-box;
+}
+.star.mini{
+  width: 30rpx;
+  height: 28rpx;
+  margin:0 5rpx;
+}
+.star-wrapper .star:first-child{
+  margin-left: 0;
+}

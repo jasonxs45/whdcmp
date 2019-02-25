@@ -1,0 +1,37 @@
+.aside{}
+.aside.hide{
+  display: none;  
+}
+.aside .bg.hide{
+  opacity: 0;
+}
+.aside .aside-wrapper.hide{
+  transform: translateX(100%);
+}
+.aside .bg{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  z-index: 11;
+  background: rgba(0,0,0,.5);
+  transform: translateX(0);
+  transition: opacity .2s;
+  top:0;
+  left:0;
+}
+.aside .aside-wrapper{
+  position: fixed;
+  z-index: 12;
+  width:90%;
+  height: 100%;
+  top:0;
+  right: 0;
+  left:auto;
+  background: rgba(255,255,255, .95);
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.5);
+  transition: transform .2s;
+}
+.aside .aside-wrapper.left{
+  left:0;
+  right: auto;
+}

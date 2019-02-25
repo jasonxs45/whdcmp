@@ -1,0 +1,4 @@
+<view class="tabnav-item">
+  <text>{{text}}</text>
+  <slot></slot>
+</view>

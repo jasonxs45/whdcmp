@@ -1,0 +1,50 @@
+/**app.wxss**/
+@import '/common/font/iconfont.wxss';
+
+page {
+  background: #f2f2f2;
+  line-height: 1;
+}
+
+text {
+  line-height: 1;
+}
+
+view, scroll-view, input, textarea {
+  box-sizing: border-box;
+}
+
+.flex {
+  display: flex;
+}
+
+/*自定义button样式  */
+
+button[type=primary] {
+  color: #fff;
+  background-color: #004294;
+}
+button[type=primary].button-hover{
+  background-color: #004294;
+  opacity: .7;
+}
+
+/* 自定义checkbox radio样式 */
+
+checkbox .wx-checkbox-input {
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+}
+
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+}
+
+radio .wx-radio-input {
+}
+
+radio .wx-radio-input.wx-radio-input-checked {
+}
+
+radio .wx-radio-input.wx-radio-input-checked::before {
+}

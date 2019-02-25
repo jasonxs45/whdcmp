@@ -1,0 +1,4 @@
+<view class="no-data">
+  <image class="image" src="../../images/nodata.png"></image>
+  <text class="text">{{text || '暂无信息'}}</text>
+</view>

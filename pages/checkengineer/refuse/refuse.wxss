@@ -1,0 +1,52 @@
+.refuse {
+}
+
+.section {
+  background: #fff;
+  margin: 30rpx 0;
+  padding:0 30rpx;
+}
+.refuse .title{
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 200;
+  padding: 30rpx 0;
+}
+
+.refuse .section:first-child {
+  margin-top: 0;
+}
+.refuse .checkbox{
+  border-bottom: 1rpx solid #ddd;
+  align-items: center;
+  min-height: 96rpx;
+}
+.refuse .checkbox:last-child{
+  border-bottom:none;
+}
+.refuse .flex .fh {
+  flex: 1;
+  font-size: 28rpx;
+  color: #333;
+}
+.refuse .checkbox .wx-checkbox-input {
+  border: none;
+  background: none !important;
+}
+.refuse .checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  color:#004294;
+}
+.refuse .textarea{
+  display: block;
+  font-size: 28rpx;
+  padding:30rpx 0;
+}
+.refuse .flex .icon {
+  display: block;
+  width: 36rpx;
+  height: 36rpx;
+}
+.refuse .submit{
+  width: 88%;
+  margin-top: 80rpx;
+}

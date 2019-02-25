@@ -1,0 +1,63 @@
+<view class="bacth-list">
+  <view class="fkbar">
+    <view class="tab-nav">
+      <view wx:for="{{tabMenus}}" wx:for-item="nav" wx:for-index="idx" wx:key="nav+{{idx}}" class="tabnav-item {{activeTabIndex === idx ? 'active' : ''}}" data-index="{{idx}}" bindtap="tabChangeHandler">
+        {{nav.name}}
+      </view>
+      <view class="movebar" style="{{moveBarStyle}}"></view>
+    </view>
+    <view class="change-mode" bindtap='toggleListMode'>
+      {{activelistMode ? '切换问题列表' : '切换楼栋列表'}}
+    </view>
+  </view>
+  <view class="container">
+    <swiper class="swiper" duration="300" current="{{activeTabIndex}}" bindchange="swiperChangeHandler">
+      <swiper-item wx:for="{{tabMenus}}" wx:for-item="sw" wx:for-index="idx" wx:key="swiper+{{idx}}">
+        <block wx:if="{{activelistMode === 0}}">
+          <!-- 问题列表 -->
+          <view wx:if="{{list[sw.target].length > 0}}" class="content" scroll-y="true">
+            <view wx:for="{{list[sw.target]}}" wx:key="{{Math.random().toString(36).substr(2)}}" class="card">
+              <view class="card-header flex">
+                <view class="fh">
+                  <image class="icon" src="../../../images/mock.png"></image>
+                  <text class="title">{{item.Name || '这里是批次号'}}</text>
+                </view>
+              </view>
+              <view class="card-body">
+                <view class="building-item">
+                  <view class="wrapper">
+                    <view class="btns">
+                      <button wx:for="{{item.Btn}}" wx:key="btn-{{index}}" wx:for-item="btn" data-batchid="{{item.ID}}" bindtap="getDetail" class="btn" size="mini" data-type="{{btn.name}}">{{btn.name}}({{btn.count}})</button>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <no-data wx:else />
+        </block>
+        <block wx:if="{{activelistMode === 1}}">
+          <!-- 楼栋列表 -->
+          <view wx:if="{{listByBuilding[sw.target].length > 0}}" class="content" scroll-y="true">
+            <view wx:for="{{listByBuilding[sw.target]}}" wx:key="{{Math.random().toString(36).substr(2)}}" class="card">
+              <view class="card-header">
+                <image class="icon" src="{{'../../../images/' + (sw.target === 'mock' ? 'mock':'formal')+'.png'}}">
+                </image>
+                <text class="title">{{item.Title}}</text>
+              </view>
+              <view class="card-body">
+                <view wx:for="{{item.infolosts}}" wx:for-item="building" wx:key="{{building}}" class="building-item">
+                  <view class="wrapper">
+                    {{building.name}}栋
+                  </view>
+                  <button data-batchid="{{item.ID}}" data-building="{{building.id}}" data-name="{{building.name}}" class="get-detail" size="mini" plain bindtap="getDetailByBuilding">查看</button>
+                </view>
+              </view>
+            </view>
+          </view>
+          <no-data wx:else />
+        </block>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>

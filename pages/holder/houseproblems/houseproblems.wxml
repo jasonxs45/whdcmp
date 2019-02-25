@@ -1,0 +1,18 @@
+<view wx:if="{{list.length > 0}}" class="content">
+  <view wx:for="{{list}}" wx:key="{{Math.random().toString(36).substr(2)}}" class="card">
+    <view class="card-header flex">
+        <image class="fh icon" src="../../../images/mock.png"></image>
+        <view class="fb title">{{item.Name}}--{{building}}栋{{unit}}单元{{floor}}{{houseno}}</view>
+    </view>
+    <view class="card-body">
+      <view class="building-item">
+        <view class="wrapper">
+          <view class="btns">
+            <view wx:for="{{item.Btn}}" wx:key="btn-{{index}}" wx:for-item="btn" data-batchid="{{item.ID}}" data-houseno="{{houseno}}" bindtap="getDetail" class="btn" data-type="{{btn.name}}">{{btn.name}}({{btn.count}})</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<no-data wx:else />

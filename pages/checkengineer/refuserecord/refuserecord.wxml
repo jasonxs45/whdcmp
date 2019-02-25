@@ -1,0 +1,14 @@
+<view class="refuse-record">
+  <block wx:if="{{records.length > 0}}">
+    <view wx:for="{{records}}" wx:key="record-{{index}}" class="record">
+      <view class="date">{{item.Time}}</view>
+      <view class="content">
+        <view class="reasons">
+          <text wx:for="{{item.Tip}}" wx:key="reason-{{index}}" class="tag">{{item}}</text>
+        </view>
+        <view wx:if="{{item.Des}}" class="desc">{{item.Des}}</view>
+      </view>
+    </view>
+  </block>
+  <no-data wx:else></no-data>
+</view>

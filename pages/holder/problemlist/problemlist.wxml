@@ -1,0 +1,106 @@
+<view class="problem-list">
+  <view class="search-bar flex">
+    <view class="text">批次号：{{indexStr}}</view>
+    <view class="filter" bindtap="showFilterBox">
+      筛选
+      <image class="icon" src="../../../images/filter.png"></image>
+    </view>
+  </view>
+  <view class="container">
+    <block wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}" wx:key="item-{{index}}" class="card" bindtap="getDetail" data-id="{{item.TroubleID}}">
+        <view class="for-naocandichan"><text>查看详情</text><image src="../../../images/arrow-right.png"></image></view>
+        <view wx:if="{{item.IsTimeOut}}" class="timeout">超时</view>
+        <view class="card-header">
+          <view class="title">{{item.Name}}</view>
+          <view class="date">{{item.Time}}</view>
+        </view>
+        <split class="line" split-type="line" />
+        <view class="card-body">
+          <view class="flex p">
+            <view class="fh">部位：</view>
+            <view class="fb">{{item.Part}}</view>
+          </view>
+          <view class="flex p">
+            <view class="fh">问题：</view>
+            <view class="fb">{{item.Trouble}}</view>
+          </view>
+        </view>
+        <view class="card-footer">
+          <block wx:if="{{status === '未受理'}}">
+            <button size="mini" class="refuse" data-tid="{{item.TroubleID}}" catchtap='openRefuse'>拒绝</button>
+            <button size="mini" class="accept" data-tid="{{item.TroubleID}}"  catchtap='getHandle'>受理</button>
+          </block>
+          <!-- <button wx:if="{{status === '处理中'}}" size="mini" class="accept" data-tid="{{item.TroubleID}}"  catchtap='openHandleBox'>已处理</button> -->
+          <button wx:if="{{status === '申请拒绝'}}" size="mini" class="accept" data-tid="{{item.TroubleID}}"  catchtap='getReset'>恢复并受理</button>
+        </view>
+      </view>
+    </block>
+    <no-data wx:else></no-data>
+  </view>
+</view>
+<aside show="{{showFilter}}" bindclose="hideFilterBox">
+  <view class="filter-wrapper">
+    <view class="wrapper">
+      <view class="title">
+        <text class="main">楼栋</text>
+      </view>
+      <input bindinput='buildingChange' value="{{inputBuilding}}" type="number" class="roomnum" placeholder="请输入要查询的楼栋"></input>
+      <view class="title">
+        <text class="main">单元</text>
+      </view>
+      <input bindinput='unitChange' value="{{inputUnit}}" type="number" class="roomnum" placeholder="请输入要查询的单元"></input>
+      <view class="title">
+        <text class="main">房号</text>
+      </view>
+      <input bindinput='roomNumChange' value="{{roomNum}}" type="number" class="roomnum" placeholder="请输入要查询的房号"></input>
+      <view class="title">
+        <text class="main">部位</text>
+      </view>
+      <radio-group class="check-group" bindchange="radioChange">
+        <label class="checkbox {{item.checked ? 'checked' : ''}}" wx:for="{{parts}}" wx:key="part-{{index}}">
+          <radio value="{{item.ID}}" checked="{{item.checked}}" />
+          <view class="text">{{item.Name}}</view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="bottom">
+      <view class="btn clear" bindtap='clearFilters'>重置</view>
+      <view class="btn confirm" bindtap='doFilt'>确认</view>
+    </view>
+  </view>
+</aside>
+ <view hidden='{{!showForm}}' class="refuse-form">
+  <view class="bg"></view>
+  <view class="refuse-form-wrapper">
+    <view class="panel">
+      <view class="panel-head">
+        <image src="../../../images/top.png" mode="widthFix" />
+        <view class="tit">拒绝受理</view>
+      </view>
+      <view class="panel-body">
+        <picker bindchange="pickerChange" value="{{reasonIndex}}" range="{{reasons}}" range-key='Desc'>
+          <view class="picker">
+            请选择理由：{{reasons[reasonIndex].Desc}}
+          </view>
+        </picker>
+        <view wx:if='{{showForm}}' class="textarea">
+           <textarea placeholder='补充具体原因' bindinput='textareaChange'></textarea>  
+        </view>
+      </view>
+      <view class="panel-foot">
+        <view class="cancel" plain bindtap="closeRefuse">取消</view>
+        <view class="confirm" plain bindtap="getRefuse">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view hidden='{{!handleBoxShow}}' class="handle-box">
+  <view class="wrapper">
+    <textarea bindinput='handleBoxChange' value="{{handleReason}}" placeholder='请输入通过处理的说明'></textarea>
+  </view>
+  <view class="btns">
+    <button class="no" bindtap='closeHandleBox'>取消</button>
+    <button class="yes" bindtap='getFinish'>确定</button>
+  </view>
+</view>

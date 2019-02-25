@@ -1,0 +1,34 @@
+.sign-board{
+  width:100%;
+  height: 100vh;
+  background: #fff;
+  padding:30rpx 0;
+}
+.sign-board .title{
+  text-align: center;
+  padding: 0 0 30rpx;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+  font-weight: 200;
+}
+.sign-board .firstCanvas {
+  width:80%;
+  height: 50%;
+  border: 1rpx solid #ddd;
+  margin: 60rpx auto;
+}
+.sign-board .btns{
+  padding:30rpx 60rpx;
+  margin-top: 30rpx;
+}
+.sign-board .clear,
+.sign-board .save{
+  font-size: 30rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  margin-top: 50rpx;
+}
+.sign-board .save{
+  background: #004294;
+  color: #fff;
+}

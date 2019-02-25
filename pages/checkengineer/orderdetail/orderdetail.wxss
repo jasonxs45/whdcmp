@@ -1,0 +1,107 @@
+.orderdetail .orderdetail-wrapper{
+  min-height: 85vh;
+}
+.statu{
+  font-size: 28rpx;
+  background: #fff;
+  padding:15rpx 30rpx;
+  margin-bottom: 20rpx;
+}
+.statu .dot{
+  display: inline-block;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-left: -15rpx;
+  background: #ccc;
+}
+.orderdetail .texts{
+  background: #fff;
+  padding: 30rpx;
+}
+.orderdetail .texts .p{
+  margin-top: 20rpx;
+}
+.orderdetail .texts .p:first-child{
+  margin-top: 0;
+}
+.orderdetail .texts .ph{
+  font-size: 26rpx;
+  font-weight: 200;
+  width: 90rpx;
+}
+.orderdetail .texts .pb{
+  font-size: 24rpx;
+  flex: 1;
+  line-height: 1.2;
+}
+.orderdetail .imgs{
+  text-align: center;
+}
+.orderdetail .imgs image {
+  width: 100%;
+  margin: 30rpx 0;
+}
+.img-group{
+  padding: 10rpx 30rpx;
+  background: #fff;
+  margin: 20rpx 0;
+}
+.img-group .title{
+  font-size: 26rpx;
+  font-weight: 200;
+  margin: 20rpx 0;
+}
+.img-group .img-row{
+  margin-left: -10rpx;
+  margin-right: -10rpx;
+  padding:0 0 20rpx;
+}
+.img-group .img-wrapper{
+  width: 120rpx;
+  height: 120rpx;
+  margin: 10rpx;
+  position: relative;
+  display: inline-block;
+}
+.img-wrapper .clear{
+  position: absolute;
+  top: -10rpx;
+  right:-10rpx;
+}
+.img-wrapper image{
+  width:100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.uploadbtn{
+}
+.pass{
+  width: 680rpx;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
+}
+.other-info{
+  padding: 30rpx;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.other-info .flex{
+  margin-top:20rpx;
+}
+.other-info .flex:first-child{
+  margin-top: 0;
+}
+.other-info .fh{
+  width: 160rpx;
+  font-size: 26rpx;
+  font-weight: 200;
+}
+.other-info .fb{
+  flex: 1;
+  font-size: 26rpx;
+  color:#333;
+  text-align: right;
+}

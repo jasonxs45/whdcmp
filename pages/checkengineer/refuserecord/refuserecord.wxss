@@ -1,0 +1,33 @@
+.refuse-record{}
+.refuse-record .date{
+  font-size: 24rpx;
+  color:#666;
+  padding: 30rpx;
+}
+.refuse-record .content{
+  padding: 30rpx;
+  background: #fff;
+}
+.refuse-record .content .reasons{
+  margin-left: -10rpx;
+  margin-right: -10rpx;
+}
+.refuse-record .content .tag{
+  font-size: 28rpx;
+  background: #f25a5a;
+  color:#fff;
+  margin:10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding:0 12rpx;
+  display: inline-block;
+  border-radius: 4rpx;
+}
+.refuse-record .content .desc{
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color:#333;
+  padding: 20rpx;
+  background: #eee;
+  border-radius:4rpx;
+}

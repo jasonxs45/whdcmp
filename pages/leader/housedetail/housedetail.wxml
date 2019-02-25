@@ -1,0 +1,41 @@
+<view class="house-detail">
+  <view class="info-bar">
+    <view class="left">业主：
+      <text>{{house.OwnerName}}</text>
+    </view>
+  </view>
+  <view class="content">
+    <view class="problems-wrapper">
+      <view class="category-bar">
+        <view wx:for="{{categories}}" wx:key="category-{{index}}" class="category {{activeTabIndex === index ? 'active' : '' }}" data-index="{{index}}" bindtap="">
+          <text class="dot" style="background-color:{{item.color}}"></text>
+          <text class="text">{{item.name}}</text>
+        </view>
+      </view>
+      <block wx:if="{{problems.length > 0}}">
+        <view wx:for="{{problems}}" wx:key="problem-{{index}}" style="border-color:{{colorMap[item.Statu] || '#ddd'}}" class="problem" data-id="{{item.ID}}" data-state="{{item.Statu}}" bindtap="goOrderDetail">
+          <view class="flex p">
+            <view class="ph">部位：</view>
+            <view class="pb">{{item.Part}}</view>
+          </view>
+          <view class="flex p">
+            <view class="ph">部品：</view>
+            <view class="pb">{{item.PartRes}}</view>
+          </view>
+          <view class="flex p">
+            <view class="ph">问题：</view>
+            <view class="pb">{{item.PartResTrouble}}</view>
+          </view>
+          <view wx:if="{{item.Description}}" class="flex p">
+            <view class="ph">描述：</view>
+            <view class="pb">{{item.Description}}</view>
+          </view>
+        </view>
+      </block>
+      <no-data wx:else />
+    </view>
+  </view>
+  <view class="footer">
+    <view class="refuse" bindtap="goRefuse">暂不接收记录</view>
+  </view>
+</view>

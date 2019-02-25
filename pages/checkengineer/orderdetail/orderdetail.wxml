@@ -1,0 +1,70 @@
+<view class="orderdetail">
+  <view class="orderdetail-wrapper">
+    <view class="statu">
+      <text class="dot" style="background-color:{{colorMap[statu]}}"></text>
+      <text>{{statu}}</text>
+    </view>
+    <view class="texts">
+      <view class="flex p">
+        <view class="ph">部位：</view>
+        <view class="pb">{{content.PartResTrouble.PartRes.Part.Name }}
+        </view>
+      </view>
+      <view class="flex p">
+        <view class="ph">部品：</view>
+        <view class="pb">{{content.PartResTrouble.PartRes.Name}}</view>
+      </view>
+      <view class="flex p">
+        <view class="ph">问题：</view>
+        <view class="pb">{{content.PartResTrouble.Description}}</view>
+      </view>
+      <view wx:if="{{content.Description}}" class="flex p">
+        <view class="ph">描述：</view>
+        <view class="pb">{{content.Description}}</view>
+      </view>
+    </view>
+    <view wx:if="{{imgs.length > 0}}" class="img-group">
+      <view class="title">整改前</view>
+      <view class="img-row">
+        <view wx:for="{{imgs}}" wx:key="{{item}}" class="img-wrapper">
+          <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{imgs}}" bindtap="preview" />
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{statu === '已处理'}}" class="img-group">
+      <view class="title">请上传整改后的照片</view>
+      <view class="img-row">
+        <view wx:for="{{uploadImages}}" wx:key="{{item}}" class="img-wrapper">
+          <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{uploadImages}}" bindtap="preview" />
+          <icon data-index="{{index}}" type="clear" size="20" class="clear" color="red" bindtap="removeImage" />
+        </view>
+        <view wx:if="{{uploadImages.length < 5}}" class="img-wrapper">
+          <image class="uploadbtn" src="../../../images/uploadbtn.png" bindtap="chooseImage" />
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{statu === '已通过' && finishpicture.length > 0}}" class="img-group">
+      <view class="title">整改后</view>
+      <view class="img-row">
+        <view wx:for="{{finishpicture}}" wx:key="{{item}}" class="img-wrapper">
+          <image mode="aspectFill" src="{{item}}" data-src="{{item}}" data-group="{{finishpicture}}" bindtap="preview" />
+        </view>
+      </view>
+    </view>
+    <view class="other-info">
+      <view class="flex">
+        <view class="fh">派单时间：</view>
+        <view class="fb">{{content.AddTime}}</view>
+      </view>
+      <view class="flex">
+        <view class="fh">验房工程师：</view>
+        <view class="fb">{{content.AddStaff.Name}}</view>
+      </view>
+      <view class="flex" style='display:none'>
+        <view class="fh">联系电话：</view>
+        <view class="fb" data-tel="{{content.AddStaff.Tel}}" bindtap='teleCall'>{{content.AddStaff.Tel}}</view>
+      </view>
+    </view>
+  </view>
+  <button wx:if="{{statu === '已处理'}}" type="primary" class="pass" bindtap='getPass'>通过</button>
+</view>

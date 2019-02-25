@@ -1,0 +1,70 @@
+.section{
+  background: #fff;
+  margin:15rpx 0;
+  padding: 15rpx 0;
+}
+.title{
+  font-size: 30rpx;
+  font-weight: 200;
+  padding: 12rpx 30rpx;
+}
+.p{
+  font-size: 26rpx;
+  color:#333;
+  padding:15rpx 30rpx;
+}
+.p1 {
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+}
+.p1:last-child{
+  border:none;
+}
+.p1 .fh{
+  flex: 1;
+  padding:10rpx 0;
+}
+.p1 .fh .main{
+  font-size: 34rpx;
+}
+.p1 .fh .sub{
+  color: #999;
+    margin-top: 15rpx;
+}
+.p1 .fb{
+  width: 120rpx;
+  text-align: right;
+  font-size: 30rpx;
+}
+.p2{
+  align-items: center;
+}
+.p2 .fh{
+  width: 160rpx;
+  font-weight: 200;
+}
+.p2 .fb {
+  flex: 1;
+  text-align: right;
+  font-size: 32rpx;
+}
+.p2 .fb image{
+  width: 50%;
+}
+.go-accept{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 0 !important;
+  left:0;
+  background: #004294;
+  color:#fff;
+}
+.go-accept:after{
+  border-radius: 0 !important;
+}
+.accept-detail{
+  padding-bottom: 110rpx
+}

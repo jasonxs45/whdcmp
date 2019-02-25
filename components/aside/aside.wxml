@@ -1,0 +1,6 @@
+  <view class="aside {{open ? 'show' : 'hide'}}" bindtouchstart='ts' bindtouchmove='tm' bindtouchend='te'>
+    <view class="bg {{animate ? 'hide' : ''}}" bindtap="starttransition" bindtransitionend="_close"></view>
+    <view class="aside-wrapper {{direction}} {{animate ? 'hide' : ''}}">
+      <slot></slot>
+    </view>
+  </view>

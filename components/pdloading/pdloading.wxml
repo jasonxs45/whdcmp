@@ -1,0 +1,3 @@
+<view hidden="{{hidden}}" class="pdloading">
+  <text>加载中...</text>
+</view>

@@ -1,0 +1,25 @@
+<view hidden='{{!show}}' class="refuse-form">
+  <view class="bg"></view>
+  <view class="refuse-form-wrapper">
+    <view class="panel">
+      <view class="panel-head">
+        <image src="../../../images/top.png" mode="widthFix" />
+        <view class="tit">申请驳回</view>
+      </view>
+      <view class="panel-body">
+        <picker bindchange="pickerChange" value="{{reasonIndex}}" range="{{reasons}}" range-key='Desc'>
+          <view class="picker">
+            请选择理由：{{reasons[reasonIndex].Desc}}
+          </view>
+        </picker>
+        <view class="textarea">
+          <textarea placeholder='请补充具体原因' bindinput='textareaChange'></textarea>
+        </view>
+      </view>
+      <view class="panel-foot">
+        <view class="cancel" plain bindtap="closeRefuse">取消</view>
+        <view class="confirm" plain bindtap="getRefuse">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,375 @@
+.problem-list {
+}
+
+.search-bar {
+  position: fixed;
+  width: 100%;
+  height: 100rpx;
+  top: 0;
+  left: 0;
+  background: #004294;
+  z-index: 11;
+  align-items: center;
+  padding: 0 30rpx;
+  justify-content: space-between;
+}
+
+.search-bar .text {
+  font-size: 28rpx;
+  color: #fff;
+}
+
+.search-bar .filter {
+  font-size: 28rpx;
+  color: #fff;
+  text-align: right;
+  line-height: 1;
+}
+
+.search-bar .icon {
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: middle;
+}
+
+.search-bar + .container {
+  padding-top: 100rpx;
+}
+
+.card {
+  padding: 30rpx;
+  background: #fff;
+  margin: 20rpx 0;
+  position: relative;
+}
+.timeout{
+  position: absolute;
+  top:0;
+  right:0;
+  display: inline-block;
+  line-height: 1;
+  font-size: 24rpx;
+  color:#fff;
+  background: #f25a5a;
+  padding:10rpx;
+}
+
+.card-header {
+}
+
+.card-header .title {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.card-header .date {
+  font-size: 24rpx;
+  font-weight: 200;
+  margin-top: 10rpx;
+  color: #999;
+}
+
+.line {
+  display: block;
+  margin-top: 20rpx;
+}
+
+.p {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+
+.p .fh {
+  font-weight: 200;
+}
+
+.refuse {
+  background: none;
+}
+
+.card-footer {
+  padding: 20rpx 0 0;
+  text-align: right;
+}
+
+.accept {
+  color: #004294;
+  margin-left: 30rpx;
+  background: #fff;
+}
+
+.accept:after {
+  border-color: #004294;
+}
+
+.filter-wrapper {
+  width: 100%;
+  height: 100%;
+  background: #f2f2f2;
+  position: relative;
+}
+
+.filter-wrapper .wrapper {
+  padding: 30rpx 18rpx 120rpx 30rpx;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.filter-wrapper .title {
+  margin-top: 30rpx;
+  display: flex;
+}
+
+.filter-wrapper .title .main {
+  display: block;
+  font-size: 28rpx;
+  color: #333;
+  min-width: 80rpx;
+}
+
+.filter-wrapper .title .preview {
+  display: block;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color: #f25a5a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.filter-wrapper .check-group {
+  margin-top: 14rpx;
+  margin-left: -10rpx;
+  margin-right: -8rpx;
+}
+
+.filter-wrapper .checkbox {
+  display: inline-block;
+  width: 170rpx;
+  height: 60rpx;
+  margin: 10rpx 10rpx;
+  position: relative;
+}
+
+.filter-wrapper .checkbox radio {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.filter-wrapper .checkbox .text {
+  color: #999;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #fff;
+  border-radius: 50px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.filter-wrapper .checkbox radio[checked] +  .text{
+  background: #004294;
+  color: #fff;
+}
+
+.filter-wrapper .bottom {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 98rpx;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.filter-wrapper .bottom .btn {
+  display: inline-block;
+  height: 100%;
+  width: 50%;
+  line-height: 98rpx;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  background: #f2f2f2;
+}
+
+.filter-wrapper .bottom .btn.confirm {
+  background: #004294;
+  color: #fff;
+}
+.roomnum{
+  font-size: 26rpx;
+  background: #fff;
+  padding: 15rpx;
+  border-radius: 4px;
+  height: 80rpx;
+  margin-top: 30rpx;
+}
+.refuse-form {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 12;
+}
+
+.refuse-form .bg {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.refuse-form-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height: 100%;
+}
+.refuse-form-wrapper .panel{
+  width: 620rpx;
+  min-height: 200rpx;
+}
+.refuse-form-wrapper .panel-head{
+  position: relative;
+}
+.refuse-form-wrapper .panel-head image{
+  width: 620rpx;
+  display: block;
+  z-index: -1;
+}
+.refuse-form-wrapper .panel-head .tit{
+  color:#fff;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top:50%;
+  line-height: 1;
+  font-size: 40rpx;
+  margin-top: -20rpx;
+}
+.refuse-form-wrapper .panel-body{
+  background: #fff;
+}
+.refuse-form-wrapper .panel-body .textarea{
+  padding:0 30rpx 30rpx;
+}
+.refuse-form-wrapper .panel-body .textarea textarea{
+  font-size: 26rpx;
+  background:#ccc;
+  width:100%;
+  height: 200rpx;
+  border-radius: 4px;
+  padding: 20rpx;
+}
+.refuse-form-wrapper .panel-foot{
+  background: #fff;
+  border-top:1rpx solid #ddd;
+  text-align: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: flex;
+}
+.refuse-form-wrapper .cancel,
+.refuse-form-wrapper .confirm{
+  width: 35%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  margin:0;
+  flex: 1;
+}
+.refuse-form-wrapper .cancel{
+  border-color: #ddd;
+  border-right:1rpx solid #ddd;
+}
+.refuse-form-wrapper .confirm{
+  border-color: #004294;
+  color:#004294;
+}
+.refuse-form-wrapper .picker{
+  font-size: 26rpx;
+  color:#333;
+  padding:30rpx;
+}
+.handle-box{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30rpx;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+}
+.handle-box .wrapper{
+  background: #fff;
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  overflow: hidden;
+  padding:30rpx;
+}
+.handle-box textarea{
+  background: #f1f1f1;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 28rpx;
+  color: #333;
+  padding: 20rpx;
+}
+.handle-box .btns{
+  width:100%;
+  border-top:1rpx solid #ddd;
+}
+.handle-box .btns button{
+  width: 50%;
+  display: inline-block;
+  background: #fff;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.handle-box .btns button.no {
+  border-bottom-right-radius: 0;
+  border-right: 1rpx solid #ddd;
+}
+.handle-box .btns button.yes {
+  border-bottom-left-radius: 0;
+}
+.handle-box .btns button::after{
+  display: none;
+}
+.for-naocandichan{
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  font-size: 28rpx;
+  color: #666;
+  display:inline-block;
+}
+.for-naocandichan text{
+  vertical-align: top;
+}
+.for-naocandichan image{
+  width: 28rpx;
+  height: 28rpx;
+  vertical-align: top;
+}
+.nomore{
+  text-align: center;
+  padding:30rpx;
+  font-size: 26rpx;
+  color:#666;
+  font-weight: 200;
+}

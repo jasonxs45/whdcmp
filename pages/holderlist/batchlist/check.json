@@ -1,0 +1,12 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "整改批次",
+  "backgroundColor": "#f2f2f2",
+  "usingComponents": {
+    "tabnav": "/components/tabnav/tabnav",
+    "tabnav-item": "/components/tabnavitem/tabnav-item",
+    "split": "/components/split/split",
+    "no-data": "/components/nodata/no-data",
+    "pdloading": "/components/pdloading/pdloading"
+  }
+}

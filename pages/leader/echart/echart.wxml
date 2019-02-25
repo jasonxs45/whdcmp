@@ -1,0 +1,29 @@
+<view class="charts">
+  <view class="container">
+    <view class="content">
+      <!-- <view class="main-title">{{types[typeIndex]}}-{{batches[batchIndex]}}</view> -->
+      <view class="section">
+        <view class="title">验房问题状态</view>
+        <view class="trouble-bar">
+          <ec-canvas id="trouble-bar" canvas-id="trouble-bar" ec="{{ troubleStatus }}"></ec-canvas>
+        </view>
+        <view class="title">验房房源问题状态</view>
+        <view class="house-bar">
+          <ec-canvas id="house-bar" canvas-id="house-bar" ec="{{ houseStatus }}"></ec-canvas>
+        </view>
+        <view class="title">各施工单位问题量排名（前十）</view>
+        <view class="holder-bar">
+          <ec-canvas id="holder-bar" canvas-id="holder-bar" ec="{{ holderStatus }}"></ec-canvas>
+        </view>
+        <view class="title">各部位问题量排名（前十）</view>
+        <view class="part-bar">
+          <ec-canvas id="part-bar" canvas-id="part-bar" ec="{{ partStatus }}"></ec-canvas>
+        </view>
+         <view class="title">各部品问题量排名（前十）</view>
+        <view class="part-bar">
+          <ec-canvas id="partres-bar" canvas-id="partres-bar" ec="{{ partResStatus }}"></ec-canvas>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/leader/echart/echart",
+    "pages/leader/batchlist/batchlist",
+    "pages/repairengineer/batchlist/batchlist",
+    "pages/holder/batchlist/batchlist",
+    "pages/holder/problemlist/problemlist",
+    "pages/holder/problemdetail/problemdetail",
+    "pages/holder/batchdetail/batch-list",
+    "pages/holderlist/batchlist/check",
+    "pages/holderlist/problemlist/problemlist",
+    "pages/holderlist/problemdetail/problemdetail",
+    "pages/checkengineer/check/check",
+    "pages/checkengineer/acceptrecord/acceptrecord",
+    "pages/checkengineer/acceptdetail/acceptdetail",
+    "pages/checkengineer/batchdetail/batch-list",
+    "pages/checkengineer/refuserecord/refuserecord",
+    "pages/checkengineer/orderdetail/orderdetail",
+    "pages/checkengineer/refuse/refuse",
+    "pages/checkengineer/housedetail/housedetail",
+    "pages/checkengineer/accept/accept",
+    "pages/checkengineer/addnew/addnew",
+    "pages/checkengineer/sign/sign",
+    "pages/checkengineer/mine/mine",
+    "pages/repairengineer/problemlist/problemlist",
+    "pages/repairengineer/problemdetail/problemdetail",
+    "pages/repairengineer/batchdetail/batch-list",
+    "pages/leader/batchdetail/batchdetail",
+    "pages/leader/housedetail/housedetail",
+    "pages/leader/acceptdetail/acceptdetail",
+    "pages/leader/orderdetail/orderdetail",
+    "pages/leader/refuserecord/refuserecord",
+    "pages/repairengineer/uptrouble/uptrouble",
+    "pages/repairengineer/houseproblems/houseproblems",
+    "pages/repairengineer/shproblemlist/shproblemlist",
+    "pages/holder/houseproblems/houseproblems",
+    "pages/holder/shproblemlist/shproblemlist"
+  ],
+  "window": {
+    "backgroundColor": "#f2f2f2",
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#004294",
+    "navigationBarTitleText": "武汉地产控股移动验房",
+    "navigationBarTextStyle": "#fff"
+  },
+  "networkTimeout": {
+    "request": 30000
+  }
+}

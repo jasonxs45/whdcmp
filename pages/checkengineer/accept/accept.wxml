@@ -1,0 +1,83 @@
+<button class="submit" bindtap='Add'>提交</button>
+<view class="accept">
+  <view class="section">
+    <view class="flex">
+      <view class="fh">电表底数</view>
+      <view class="fb">
+        <input type="digit" bindinput='dianbiao' placeholder="请填写"></input>
+      </view>
+    </view>
+    <view class="flex">
+      <view class="fh">水表底数</view>
+      <view class="fb">
+        <input type="digit" bindinput='shuibiao' placeholder="请填写"></input>
+      </view>
+    </view>
+    <view class="flex">
+      <view class="fh">气表底数</view>
+      <view class="fb">
+        <input type="digit" bindinput='qibiao' placeholder="请填写"></input>
+      </view>
+    </view>
+    <view class="flex">
+      <view class="fh">留钥匙</view>
+      <view class="fb">
+        <radio-group class="radios" bindchange="keyRadioChange">
+          <label class="radio-item">
+            <radio value="是"></radio>是
+          </label>
+          <label class="radio-item">
+            <radio value="否"></radio>否
+          </label>
+        </radio-group>
+      </view>
+    </view>
+  </view>
+  <view class="section">
+    <picker class="picker" mode="date" value="{{date}}" end="{{today}}" bindchange="dateChangeHandler">
+      <view class="flex">
+        <view class="fh">接待日期</view>
+        <view class="fb">
+          <input disabled value="{{date}}" placeholder="请选择"></input>
+        </view>
+        <image class="icon" src="../../../images/arrow-right.png"></image>
+      </view>
+    </picker>
+    <view class="flex">
+      <view class="fh">满意度</view>
+      <view class="fb">
+        <star score="3" readOnly="{{false}}" bindscorechange="scoreChangeHandler" />
+      </view>
+      <view class="desc">
+        {{judge[score - 1]}}
+      </view>
+    </view>
+  </view>
+  <view class="section padding">
+    <view class="title">用户签名</view>
+    <view wx:if="{{!signImage}}" class="placehold" bindtap="openSign">
+      请点击此处进行签名
+    </view>
+    <block wx:else>
+      <image class="signImage" src="{{signImage}}" mode="aspectFit" />
+      <view style="text-align:right">
+        <button class="rewrite" size="mini" bindtap="openSign">重写</button>
+      </view>
+    </block>
+  </view>
+  <view  wx:if="problems.length > 0" class="section">
+    <view class="title" style="padding:30rpx;">问题列表</view>
+    <view class="flex p p1" wx:for="{{problems}}" wx:key='{{item}}' data-pid="{{item.ID}}" data-statu="{{item.Statu}}" bindtap="goProblemDetail">
+      <view class="fh">
+        <view class="main">
+          <text>{{item.Part}}</text>
+          <text>{{item.PartRes}}</text>
+        </view>
+        <view class="sub">{{item.PartResTrouble}}</view>
+      </view>
+      <view class="fb" style="color:{{colorMap[item.Statu]}}">
+        {{item.Statu}}
+      </view>
+    </view>
+  </view>
+</view>

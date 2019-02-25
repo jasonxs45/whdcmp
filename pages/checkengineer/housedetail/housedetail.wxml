@@ -1,0 +1,123 @@
+<view class="house-detail">
+  <view class="info-bar">
+    <view class="left">业主：
+      <text>{{house.OwnerName}}</text>
+      <image class="qrcode" src="../../../images/qrcode.png" bindtap='getQRCode' />
+    </view>
+    <view hidden="{{activeTabIndex !== 1}}" class="right" bindtap="showFilterBox">
+      <text>筛选</text>
+      <image class="icon" src="../../../images/filter.png" />
+    </view>
+  </view>
+  <view class="tabs">
+    <view wx:for="{{tabs}}" wx:key="tab-{{index}}" class="tab {{activeTabIndex === index ? 'active' : '' }}" data-index="{{index}}" bindtap='tabTap'>
+      {{item.name}}
+    </view>
+  </view>
+  <view class="content">
+    <swiper duration="300" current="{{activeTabIndex}}" bindchange="swiperChangeHandler">
+      <swiper-item>
+        <scroll-view class="picture-wrapper" scroll-y="true">
+          <view class="tip">提示：点击户型图可新增验房问题</view>
+          <view class="picture">
+            <image class="house-pic" src="{{house.Huxing.Picture || '../../../images/sample.png'}}" mode="widthFix" />
+            <image wx:for="{{roompoints}}" wx:key="{{item}}" src="../../../images/add-fill.png" style="{{'top:' + item.y + ';left:' + item.x}}" class="room-dot" data-roomid="{{item.RoomID}}" bindtap="goAddNewWithPara" />
+          </view>
+          <button class="fetchAgain" wx:if="{{fetchAgain}}" bindtap="getHouse">点击重新获取</button>
+        </scroll-view>
+      </swiper-item>
+      <swiper-item>
+        <scroll-view class="problems-wrapper" scroll-y="true">
+          <view class="category-bar">
+            <view wx:for="{{categories}}" wx:key="category-{{index}}" class="category {{activeTabIndex === index ? 'active' : '' }}" data-index="{{index}}" bindtap="">
+              <text class="dot" style="background-color:{{item.color}}"></text>
+              <text class="text">{{item.name}}</text>
+            </view>
+          </view>
+          <block wx:if="{{problems.length > 0}}">
+            <view wx:for="{{problems}}" wx:key="problem-{{index}}" style="border-color:{{colorMap[item.Statu] || '#ddd'}}" class="problem" data-id="{{item.ID}}" data-state="{{item.Statu}}" bindtap="goOrderDetail">
+              <view class="flex p">
+                <view class="ph">部位：</view>
+                <view class="pb">{{item.Part}}</view>
+                 <view class="right" style='position:absolute; right:1rem'>{{item.Statu}}</view>
+              </view>
+              <view class="flex p">
+                <view class="ph">部品：</view>
+                <view class="pb">{{item.PartRes}}</view>
+              </view>
+              <view class="flex p">
+                <view class="ph">问题：</view>
+                <view class="pb">{{item.PartResTrouble}}</view>
+              </view>
+              <view wx:if="{{item.Description}}" class="flex p">
+                <view class="ph">描述：</view>
+                <view class="pb">{{item.Description}}</view>
+              </view>
+            </view>
+          </block>
+          <no-data wx:else />
+          <button class="fetchAgain" wx:if="{{fetchAgain}}" bindtap="getHouse">点击重新获取</button>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="footer">
+    <view class="add {{activeTabIndex === 0 ? 'hide' : ''}}" bindtap="goRefuse">
+      <image src="../../../images/add.png" class="icon"></image>
+      <text class="text">暂不接收</text>
+    </view>
+    <view class="refuse {{activeTabIndex === 0 ? 'hide' : ''}}" bindtap="goAddNew">新增问题</view>
+    <view class="accept" bindtap="goAccept">验房确认</view>
+  </view>
+  <aside show="{{showFilter}}" bindclose="hideFilterBox">
+    <view class="filter-wrapper">
+      <view class="wrapper">
+        <view class="title">
+          <text class="main">部位</text>
+          <text class="preview">{{selectedrooms}}</text>
+        </view>
+        <radio-group class="check-group" bindchange="checkboxChange" data-target='rooms'>
+          <label class="checkbox {{room.checked ? 'checked' : ''}}" wx:for="{{rooms}}" wx:key="room-{{index}}" wx:for-item="room">
+            <radio value="{{room.ID}}" checked="{{room.checked}}" />{{room.Name}}
+          </label>
+        </radio-group>
+        <view class="title">
+          <text class="main">部品</text>
+          <text class="preview">{{selectedpositions}}</text>
+        </view>
+        <radio-group class="check-group" bindchange="checkboxChange" data-target='positions'>
+          <label class="checkbox {{position.checked ? 'checked' : ''}}" wx:for="{{positions}}" wx:key="position-{{index}}" wx:for-item="position">
+            <radio value="{{position.ID}}" checked="{{position.checked}}" />{{position.Name}}
+          </label>
+        </radio-group>
+      </view>
+      <view class="bottom">
+        <view class="btn clear" bindtap='clearFilters'>重置</view>
+        <view class="btn confirm" bindtap='doFilt'>确认</view>
+      </view>
+    </view>
+  </aside>
+</view>
+<view hidden='{{!qrShow}}' class="qrcode-box">
+  <view class="qrcode-wrapper">
+    <view class="panel">
+      <view class="owner-info">
+        <view>
+          <text style="font-weight:200;">房产信息</text>：
+          <text style="color:#004294;font-size: 130%;">{{house.fullName}}</text>
+        </view>
+        <view>
+          <text style="font-weight:200;">业主姓名</text>：
+          <text style="color:#004294;font-size: 130%;">{{house.OwnerName}}</text>
+        </view>
+        <!-- <view>
+          <text style="font-weight:200;">业主电话</text>：
+          <text style="color:#004294;font-size: 130%;">{{house.OwnerTel}}</text>
+        </view> -->
+      </view>
+      <image src="{{qrcode}}" mode="widthFix" bindload='showQRCode'></image>
+      <view class="title">请业主本人使用微信扫码绑定您的房源，方便查看验房问题的处理进度及后期线上服务!</view>
+      <button bindtap='hideQRCode'>关闭</button>
+    </view>
+  </view>
+</view>

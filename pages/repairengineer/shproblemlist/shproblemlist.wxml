@@ -1,0 +1,122 @@
+<view class="problem-list">
+  <view class="search-bar flex">
+    <view class="text">批次号：{{indexStr}}</view>
+    <view class="filter" bindtap="showFilterBox">
+      筛选
+      <image class="icon" src="../../../images/filter.png"></image>
+    </view>
+  </view>
+  <view class="container">
+    <block wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}" wx:key="item-{{index}}" class="card" bindtap="getDetail" data-id="{{item.TroubleID}}">
+        <view class="for-naocandichan"><text>查看详情</text><image src="../../../images/arrow-right.png"></image></view>
+        <view wx:if="{{item.IsTimeOut}}" class="timeout">超时</view>
+        <view class="card-header">
+          <view class="title">{{item.Name}}</view>
+          <view class="date">{{item.Time}}</view>
+        </view>
+        <split class="line" split-type="line" />
+        <view class="card-body">
+          <view class="flex p">
+            <view class="fh">部位：</view>
+            <view class="fb">{{item.Part}}</view>
+          </view>
+          <view class="flex p">
+            <view class="fh">问题：</view>
+            <view class="fb">{{item.Trouble}}</view>
+          </view>
+        </view>
+        <view class="card-footer">
+        <block wx:if="{{status === '未分配'}}">
+            <button size="mini" class="accept" data-tid="{{item.TroubleID}}" catchtap='DisContractor'>分配施工单位</button>
+          </block>
+          <block wx:if="{{status === '未受理' || status === '处理中'}}">
+            <button wx:if="{{item.IsTimeOut}}" size="mini" class="accept" data-tid="{{item.TroubleID}}" catchtap='timeoutAlert'>超时提醒</button>
+          </block>
+          <block wx:if="{{status === '申请拒绝' || status === '处理中' || status === '已处理'}}">
+            <button size="mini" class="refuse" data-tid="{{item.TroubleID}}" catchtap='openRefuse'>驳回</button>
+            <button size="mini" class="refuse" data-tid="{{item.TroubleID}}" catchtap='openClose'>转至客服</button>
+            <button size="mini" class="accept" data-tid="{{item.TroubleID}}" catchtap='gavinOther'>重新分配</button>
+          </block>
+        </view>
+      </view>
+      <view hidden="{{!nomore}}" class="nomore">没有更多了</view>
+    </block>
+    <no-data wx:else></no-data>
+  </view>
+</view>
+<aside show="{{showFilter}}" bindclose="hideFilterBox">
+  <view class="filter-wrapper">
+    <view class="wrapper">
+      <!-- <view class="title">
+        <text class="main">施工单位</text>
+      </view>
+      <input bindinput='inputChange' value="{{roomNum}}" class="roomnum" placeholder="请输入施工单位姓名/昵称"></input> -->
+      <view class="title">
+        <text class="main">部位</text>
+      </view>
+      <radio-group class="check-group" bindchange="radioChange">
+        <label class="checkbox {{item.checked ? 'checked' : ''}}" wx:for="{{parts}}" wx:key="part-{{index}}">
+          <radio value="{{item.ID}}" checked="{{item.checked}}" />
+          <view class="text">{{item.Name}}</view>
+        </label>
+      </radio-group>
+    </view>
+    <view class="bottom">
+      <view class="btn clear" bindtap='clearFilters'>重置</view>
+      <view class="btn confirm" bindtap='doFilt'>确认</view>
+    </view>
+  </view>
+</aside>
+<!--驳回弹窗  -->
+<view hidden='{{!showForm}}' class="refuse-form">
+  <view class="bg"></view>
+  <view class="refuse-form-wrapper">
+    <view class="panel">
+      <view class="panel-head">
+        <image src="../../../images/top.png" mode="widthFix" />
+        <view class="tit">申请驳回</view>
+      </view>
+      <view class="panel-body">
+        <picker bindchange="pickerChange" value="{{refuseReasonIndex}}" range="{{refuseReasons}}" range-key='Desc'>
+          <view class="picker">
+            请选择理由：{{refuseReasons[refuseReasonIndex].Desc}}
+          </view>
+        </picker>
+        <view class="textarea">
+          <textarea wx:if='{{showForm}}' placeholder='请补充具体原因' bindinput='textareaChange'></textarea>
+        </view>
+      </view>
+      <view class="panel-foot">
+        <view class="cancel" plain bindtap="closeRefuse">取消</view>
+        <view class="confirm" plain bindtap="getRefuse">确定</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!--强制关闭弹窗  -->
+<view hidden='{{!showClose}}' class="refuse-form">
+  <view class="bg"></view>
+  <view class="refuse-form-wrapper">
+    <view class="panel">
+      <view class="panel-head">
+        <image src="../../../images/top.png" mode="widthFix" />
+        <view class="tit">转至客服</view>
+      </view>
+      <view class="panel-body">
+        <picker bindchange="pickerChange1" value="{{closeReasonIndex}}" range="{{closeReasons}}" range-key='Desc'>
+          <view class="picker">
+            请选择理由：{{closeReasons[closeReasonIndex].Desc}}
+          </view>
+        </picker>
+        <view class="textarea">
+          <textarea wx:if='{{showClose}}' placeholder='请补充具体原因' bindinput='textareaChange1'></textarea>
+        </view>
+      </view>
+      <view class="panel-foot">
+        <view class="cancel" plain bindtap="closeClose">取消</view>
+        <view class="confirm" plain bindtap="getClose">确定</view>
+      </view>
+    </view>
+  </view>
+</view>

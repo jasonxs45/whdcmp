@@ -1,0 +1,121 @@
+.accept {
+  padding-bottom: 50rpx;
+}
+
+.section {
+  background: #fff;
+  margin: 30rpx 0;
+  padding-top: 10rpx;
+}
+.accept .section:first-child{
+  margin-top: 0;
+}
+
+.section .flex {
+  min-height: 96rpx;
+  font-size: 28rpx;
+  align-items: center;
+  padding: 0 30rpx;
+}
+
+.section .flex .fh {
+  width: 150rpx;
+  font-weight: 200;
+}
+
+.section .flex .fb {
+  flex: 1;
+}
+
+.section .flex .fb input {
+  width: 100%;
+  height: 70rpx;
+  border-bottom: 1px solid #ddd;
+  text-align: right;
+  padding:0 30rpx;
+}
+
+.section .flex .icon {
+  display: block;
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.section .picker .fb {
+  text-align: right;
+}
+.section .picker .fb input{
+  border-bottom: none;
+  width:100%;
+}
+.section.padding{
+  padding: 30rpx;
+}
+.section .title {
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 200;
+}
+.signImage{
+  width:100%;
+  height: 200rpx;
+  display: block;
+  margin: 30rpx auto;
+}
+.submit{
+  background: #004294;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left:0;
+  width: 100%;
+  border-radius:0;
+  z-index:11;
+  height: 100rpx;
+}
+.submit:after{
+  border-radius:0;
+}
+.submit + .accept{
+  padding-bottom: 130rpx
+}
+.placehold{
+  font-size: 28rpx;
+  color: #333;
+  font-weight: 200;
+  text-align: center;
+  padding: 100rpx 0;
+}
+.p1 {
+  align-items: center;
+  border-bottom: 1rpx solid #ddd;
+  padding:15rpx 0;
+}
+.p1:last-child{
+  border:none;
+}
+.p1 .fh{
+  flex: 1;
+  padding:10rpx 0;
+}
+.p1 .fh .main{
+  font-size: 34rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.p1 .fh .sub{
+  color: #999;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.p1 .fb{
+  width: 120rpx;
+  text-align: right;
+  font-size: 30rpx;
+}
+.radios{
+  text-align: right;
+}
+.radio-item{
+  margin-left: 20rpx;
+}

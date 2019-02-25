@@ -1,0 +1,350 @@
+.house-detail{width:100%}
+.info-bar{
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  height: 90rpx;
+  padding: 30rpx 30rpx 0;
+  background: #004294;
+  z-index: 10;
+}
+.info-bar .icon{
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.info-bar .left,
+.info-bar .right{
+  display: inline-block;
+  color:#fff;
+  width: 30%;
+  font-size: 28rpx;
+  font-weight: 200;
+}
+.info-bar .left{
+  width: 70%
+}
+.info-bar .left text{
+  font-size: 32rpx;
+  font-weight: 400;
+  vertical-align: top;
+}
+.info-bar .left .qrcode{
+  width: 32rpx;
+  height: 32rpx;
+  vertical-align: top;
+  margin-left: 20rpx;
+}
+.info-bar .right{
+  text-align: right;
+  float: right;
+  width:120rpx;
+}
+.info-bar .right[hidden]{
+  display: none;
+}
+.info-bar .right image,
+.info-bar .right text{
+  vertical-align: middle;
+  display: inline-block;
+}
+.tabs{
+  position: fixed;
+  left: 0;
+  top: 90rpx;
+  width:100%;
+  height: 90rpx;
+  background: #004294;
+  z-index: 10;
+  overflow: hidden;
+}
+.tabs .tab{
+  height: 90rpx;
+  display: inline-block;
+  width:50%;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  color: #fff;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: all .2s;
+}
+.tabs .tab.active{
+  background: #fff;
+  color: #004294;
+
+}
+.category-bar{
+  width:100%;
+  height: 80rpx;
+  background: #fff;
+  z-index: 10;
+  box-shadow: 0 2rpx 2rpx 0 rgba(0,0,0,.1);
+}
+.category-bar .category{
+  display: inline-block;
+  width: 25%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.category-bar .category .dot{
+  display: inline-block;
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right: 10rpx;
+  margin-left: -15rpx;
+}
+.category-bar .category .text{
+  font-size: 26rpx;
+  vertical-align: middle;
+}
+.filter-wrapper{
+  width:100%;
+  height: 100%;
+  background: #f2f2f2;
+  position: relative;
+}
+.filter-wrapper .wrapper{
+  padding: 30rpx 18rpx 120rpx 30rpx;
+  height: 100%;
+  overflow-y: auto;
+}
+.filter-wrapper .title{
+  margin-top:30rpx;
+  display: flex;
+}
+.filter-wrapper .title .main{
+  display: block;
+  font-size: 28rpx;
+  color:#333;
+  min-width: 80rpx;
+}
+.filter-wrapper .title .preview{
+  display: block;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  color:#f25a5a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.filter-wrapper .check-group{
+  margin-top: 14rpx;
+  margin-left: -10rpx;
+  margin-right: -8rpx;
+}
+.filter-wrapper .checkbox{
+  display: inline-block;
+  width: 170rpx;
+  height: 60rpx;
+  color: #999;
+  font-size: 26rpx;
+  text-align: center;
+  line-height: 60rpx;
+  background: #fff;
+  border-radius: 50px;
+  margin:10rpx 10rpx;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.filter-wrapper .checkbox radio{
+  width:0;
+  height: 0;
+  opacity: 0
+}
+.filter-wrapper .checkbox.checked{
+  background: #004294;
+  color:#fff;
+}
+.filter-wrapper .bottom{
+  position:absolute;
+  bottom: 0;
+  left:0;
+  width:100%;
+  height: 98rpx;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.2);
+}
+.filter-wrapper .bottom .btn{
+  display: inline-block;
+  height: 100%;
+  width:50%;
+  line-height: 98rpx;
+  text-align: center;
+  color: #333;
+  font-size: 28rpx;
+  background: #f2f2f2;
+}
+.filter-wrapper .bottom .btn.confirm{
+  background: #004294;
+  color: #fff;
+}
+.footer{
+  position: fixed;
+  width:100%;
+  height: 98rpx;
+  bottom:0;
+  background: #fff;
+  display: flex;
+  box-shadow: 0 0 2rpx 0 rgba(0,0,0,.1);
+}
+.footer .add{
+  flex: 0 0 150rpx;
+  width: 150rpx;
+  height: 98rpx;
+  overflow: hidden;
+  transition: width,flex .2s;
+  text-align: center;
+  border-right:1rpx solid #ccc;
+}
+.footer .add.hide,
+.footer .refuse.hide{
+  flex: 0 0 0;
+  width:0;
+  opacity: 0;
+  visibility: hidden;
+}
+.footer .add .text{
+  font-size: 20rpx;
+  display: block;
+  color: #999;
+  margin-top: 5rpx;
+}
+.footer .add .icon{
+  width:40rpx;
+  height:40rpx;
+  margin-top: 15rpx;
+  transform: rotate(45deg);
+}
+.footer .refuse,
+.footer .accept{
+  flex: 1;
+  text-align: center;
+  height: 98rpx;
+  line-height: 98rpx;
+  font-size: 28rpx;
+  transition: all .2s;
+}
+.footer .accept{
+  background: #004294;
+  color: #fff;
+}
+.content{
+  height: 100vh;
+  padding-top: 180rpx;
+  padding-bottom: 100rpx;
+}
+.category-bar + .content{
+  padding-top: 260rpx;
+}
+.content swiper{
+  height: 100%;
+}
+.picture-wrapper{
+  height: 100%;
+}
+.picture-wrapper .house-pic{
+  width: 100%;
+  height: 700rpx;
+}
+.picture-wrapper .tip{
+  text-align: center;
+  margin: 30rpx 0;
+  font-size: 26rpx;
+  color: #666;
+}
+.problems-wrapper{
+  height: 100%;
+  overflow-y: auto;
+}
+.problem{
+  background: #fff;
+  margin:20rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  position: relative;
+  border-left:10rpx solid transparent;
+  padding: 30rpx 20rpx 30rpx 14rpx;
+}
+.problem .p{
+  font-size: 26rpx;
+  color: #333;
+  margin-top: 15rpx;
+  font-weight: 200;
+}
+.problem .p:first-child{
+  margin-top: 0;
+}
+.problem .p .pb{
+  font-size: 24rpx;
+  color:#333;
+  font-weight: 400;
+}
+.picture{
+  position: relative;
+}
+.room-dot{
+  width: 62rpx;
+  height: 62rpx;
+  position: absolute;
+  margin-left: -32rpx;
+  margin-top:-32rpx;
+}
+.qrcode-box{
+  position: fixed;
+  width:100%;
+  height: 100%;
+  top:0;
+  left:0;
+  z-index: 99;
+}
+.qrcode-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,.7);
+  width:100%;
+  height: 100%;
+}
+.qrcode-wrapper .panel{
+  background: #fff;
+  border-radius: 4px;
+  margin:30rpx;
+}
+.qrcode-wrapper image{
+  display: block;
+  width:80%;
+  margin:0 auto;
+}
+.qrcode-wrapper .title{
+  font-size: 30rpx;
+  margin:30rpx;
+  text-align: center;
+  line-height: 1.5;
+  color:#666;
+}
+.qrcode-wrapper .owner-info{
+  padding:20rpx 30rpx;
+  font-size: 28rpx;
+  color:#333;
+  line-height: 1.7;
+}
+.qrcode-wrapper button{
+  background: #fff;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.qrcode-wrapper button:after{
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.fetchAgain{
+  width: 600rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;
+}

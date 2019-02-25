@@ -1,0 +1,77 @@
+<view class="addnew">
+  <view class="section">
+    <picker range-key="Name" bindchange="bindPickerChange" data-target="room" value="{{roomIndex}}" range="{{rooms}}" class="picker">
+      <view class="flex">
+        <view class="h">
+          房间：
+        </view>
+        <view class="b">
+          <input placeholder="请选择房间" value="{{rooms[roomIndex].Name}}" disabled></input>
+        </view>
+        <image class="icon" src="../../../images/arrow-right.png" />
+      </view>
+    </picker>
+    <picker range-key="Name" bindchange="bindPickerChange" data-target="part" value="{{partIndex}}" range="{{part}}" disabled='{{part.length < 1}}' class="picker">
+      <view class="flex">
+        <view class="h">
+          部位：
+        </view>
+        <view class="b">
+          <input placeholder="请选择部位" value="{{part[partIndex].Name}}" disabled></input>
+        </view>
+        <image class="icon" src="../../../images/arrow-right.png" />
+      </view>
+    </picker>
+    <picker range-key="Name" bindchange="bindPickerChange" data-target="partres" value="{{partresIndex}}" range="{{partres}}"  disabled='{{partres.length < 1}}' class="picker">
+      <view class="flex">
+        <view class="h">
+          部品：
+        </view>
+        <view class="b">
+          <input placeholder="请选择部品" value="{{partres[partresIndex].Name}}" disabled></input>
+        </view>
+        <image class="icon" src="../../../images/arrow-right.png" />
+      </view>
+    </picker>
+    <picker wx:if="{{partrestouble.length > 0}}" range-key="Description" bindchange="bindPickerChange" data-target="partrestouble" value="{{partrestoubleIndex}}" range="{{partrestouble}}"  disabled='{{partrestouble.length < 1}}' class="picker">
+      <view class="flex">
+        <view class="h">
+          问题：
+        </view>
+        <view class="b">
+          <input placeholder="请选择问题" value="{{partrestouble[partrestoubleIndex].Description}}" disabled></input>
+        </view>
+        <image class="icon" src="../../../images/arrow-right.png" />
+      </view>
+    </picker>
+    <picker range-key="Description" bindchange="bindPickerChange" data-target="partresContractor" value="{{partresContractorIndex}}" range="{{partresContractor}}"  disabled='{{partresContractor.length < 1}}' class="picker">
+      <view class="flex">
+        <view class="h" style="width: 200rpx;">
+          施工单位：
+        </view>
+        <view class="b">
+          <input placeholder="请选择施工单位" value="{{partresContractor[partresContractorIndex].Description}}" disabled></input>
+        </view>
+        <image class="icon" src="../../../images/arrow-right.png" />
+      </view>
+    </picker>
+  </view>
+  <view class="section">
+    <textarea value="{{Description}}" placeholder="请输入问题描述" class="textarea" bindinput="bindInputHandler"></textarea>
+  </view>
+  <view wx:if="{{false}}" class="section">
+    <view class="title">上传照片</view>
+    <view class="img-group">
+      <view class="img-row">
+        <view wx:for="{{uploadImages}}" wx:key="{{item}}" class="img-wrapper">
+          <image src="{{item}}" mode="aspectFill" bindtap="previewImages" />
+          <icon data-index="{{index}}" type="clear" size="20" class="clear" color="red" bindtap="removeImage"/>
+        </view>
+        <view wx:if="{{uploadImages.length < 5}}" class="img-wrapper">
+          <image mode="aspectFill" class="uploadbtn" src="../../../images/uploadbtn.png" bindtap="chooseImage" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <button class="submit" disabled='{{PartResContractorID == 0}}' bindtap='Add'>提交</button>
+</view>

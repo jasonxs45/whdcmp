@@ -1,0 +1,278 @@
+.problem-detail-wrapper{
+  min-height: 100vh;
+  padding-bottom: 30rpx;
+}
+.problem-detail-wrapper.pb{
+  padding-bottom: 360rpx;
+}
+.btn-area{
+  position: relative;
+  margin-top: -360rpx;
+  padding-top: 40rpx;
+}
+.section {
+  background: #fff;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+
+.section:first-child {
+  margin-top: 0;
+}
+.mark{
+  font-size: 26rpx;
+  color: #666;
+}
+.title {
+  color: #333;
+  font-size: 32rpx;
+}
+
+.date {
+  font-size: 24rpx;
+  font-weight: 200;
+  color: #999;
+  margin-top: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.p {
+  margin: 30rpx 0;
+}
+
+.p .fh {
+  color: #333;
+  font-weight: 200;
+  font-size: 28rpx;
+  width: 90rpx;
+}
+
+.p1 .fh {
+  width: 170rpx;
+}
+.p2 .fh{
+  width: 200rpx;
+}
+.p1 .fb,
+.p2 .fb{
+  flex:1;
+  text-align: right;
+}
+
+.p .fb {
+  flex: 1;
+  color: #333;
+  font-size: 28rpx;
+  line-height: 1.2;
+}
+
+.history{
+  border-bottom: 1rpx solid #ddd;
+  font-size: 22rpx;
+  padding-bottom: 15rpx;
+  margin:15rpx 0;
+}
+.history:last-child{
+  border-bottom: none;
+}
+.history .p{
+  margin-top: 20rpx;
+}
+.p3 .fh{
+  width:auto;
+  font-size: 24rpx;
+}
+.p3 .fb{
+  font-size: 24rpx;
+  flex: 1;
+  text-align: right;
+}
+
+.img-group .img-row {
+  margin-left: -10rpx;
+  margin-right: -10rpx;
+  padding: 0 0 20rpx;
+}
+
+.img-group .img-wrapper {
+  width: 120rpx;
+  height: 120rpx;
+  margin: 10rpx;
+  position: relative;
+  display: inline-block;
+}
+
+.img-wrapper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.img-group .title {
+  margin: 40rpx 0 30rpx;
+  font-weight: 200;
+  font-size: 28rpx;
+}
+.img-wrapper .clear{
+  position: absolute;
+  top: -10rpx;
+  right:-10rpx;
+}
+
+.refuse, .accept, .done {
+  width: 620rpx;
+  margin: 30rpx auto;
+}
+
+.refuse {
+  background: #fff;
+}
+
+.accept, .done {
+  margin-bottom: 80rpx;
+  background: #004294;
+  color: #fff;
+}
+
+.refuse-form {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 12;
+}
+
+.refuse-form .bg {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+.refuse-form-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  height: 100%;
+}
+.refuse-form-wrapper .panel{
+  width: 620rpx;
+  min-height: 200rpx;
+}
+.refuse-form-wrapper .panel-head{
+  position: relative;
+}
+.refuse-form-wrapper .panel-head image{
+  width: 620rpx;
+  display: block;
+  z-index: -1;
+}
+.refuse-form-wrapper .panel-head .tit{
+  color:#fff;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top:50%;
+  line-height: 1;
+  font-size: 40rpx;
+  margin-top: -20rpx;
+}
+.refuse-form-wrapper .panel-body{
+  background: #fff;
+}
+.refuse-form-wrapper .panel-body .textarea{
+  padding:0 30rpx 30rpx;
+}
+.refuse-form-wrapper .panel-body .textarea textarea{
+  font-size: 26rpx;
+  background:#ccc;
+  width:100%;
+  height: 200rpx;
+  border-radius: 4px;
+  padding: 20rpx;
+}
+.refuse-form-wrapper .panel-foot{
+  background: #fff;
+  border-top:1rpx solid #ddd;
+  text-align: center;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  display: flex;
+}
+.refuse-form-wrapper .cancel,
+.refuse-form-wrapper .confirm{
+  width: 35%;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  margin:0;
+  flex: 1;
+}
+.refuse-form-wrapper .cancel{
+  border-color: #ddd;
+  border-right:1rpx solid #ddd;
+}
+.refuse-form-wrapper .confirm{
+  border-color: #004294;
+  color:#004294;
+}
+.refuse-form-wrapper .picker{
+  font-size: 26rpx;
+  color:#333;
+  padding:30rpx;
+}
+.handle-box{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top:0;
+  left: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30rpx;
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content:center;
+}
+.handle-box .wrapper{
+  background: #fff;
+  width: 100%;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  overflow: hidden;
+  padding:30rpx;
+}
+.pass-info{
+  background: #f1f1f1;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 28rpx;
+  color: #333;
+  padding: 20rpx;
+}
+.handle-box .btns{
+  width:100%;
+  border-top:1rpx solid #ddd;
+}
+.handle-box .btns button{
+  width: 50%;
+  display: inline-block;
+  background: #fff;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.handle-box .btns button.no {
+  border-bottom-right-radius: 0;
+  border-right: 1rpx solid #ddd;
+}
+.handle-box .btns button.yes {
+  border-bottom-left-radius: 0;
+}
+.handle-box .btns button::after{
+  display: none;
+}

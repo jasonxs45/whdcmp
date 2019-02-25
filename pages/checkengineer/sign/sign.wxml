@@ -1,0 +1,9 @@
+    <view class="sign-board">
+      <view class="title">请在下方空白处签名（正楷）</view>
+      <canvas class="firstCanvas" canvas-id="firstCanvas" bindtouchmove="move" bindtouchstart="start" bindtouchend="end" bindtouchcancel="cancel" bindlongtap="tap" binderror="error" disable-scroll="true">
+      </canvas>
+      <view class="btns">
+        <button class="clear" bindtap="clearClick">清除</button>
+        <button class="save" bindtap="saveClick">保存</button>
+      </view>
+    </view>

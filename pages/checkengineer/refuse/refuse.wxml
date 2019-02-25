@@ -1,0 +1,21 @@
+<view class="refuse">
+  <view class="section">
+    <view class="title">选择拒收原因</view>
+    <checkbox-group bindchange="checkboxChangeHandler">
+      <label wx:for="{{fixReasons}}" wx:key="item" class="flex checkbox">
+        <text class="fh">{{item}}</text>
+        <checkbox class="fb" value="{{item}}"></checkbox>
+      </label>
+    </checkbox-group>
+  </view>
+  <view class="section">
+    <textarea class="textarea" value='{{Des}}'   bindinput='SetDes'  placeholder="请填写补充说明"></textarea>
+  </view>
+  <view class="section">
+    <view class="flex checkbox" bindtap="goRecords">
+      <view class="fh">暂不收楼记录</view>
+      <image class="icon" src="../../../images/arrow-right.png"></image>
+    </view>
+  </view>
+  <button type="primary" class="submit" bindtap="Add">提交</button>
+</view>

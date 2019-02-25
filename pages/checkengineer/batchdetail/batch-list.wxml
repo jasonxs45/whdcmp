@@ -1,0 +1,40 @@
+<view class="batch-list">
+  <radio-group bindchange="pickerChangeHandler">
+    <scroll-view class="select-unit-bar" scroll-x>
+      <label wx:for="{{unitList}}" wx:key="unit-{{index}}" class="unit-cell">
+        <radio class="radio" value="{{index}}" checked="{{index == curUnitIndex}}"></radio>
+        <view class="text">{{item}}单元</view>
+      </label>
+      <!-- <picker bindchange="pickerChangeHandler" value="{{curUnitIndex}}" range="{{unitList}}">
+      <view class="picker">{{unitList[curUnitIndex]}}单元</view>
+      <image class="caret" src="../../../images/caret.png"></image>
+    </picker> -->
+    </scroll-view>
+  </radio-group>
+  <view class="filter-bar">
+    <view wx:for="{{filters}}" wx:for-index="idx" wx:key="filter-{{item}}" data-index="{{idx}}" class="filter" bindtap="filterChangeHandler">
+      <view class="name">
+        <view class="dot {{item.dot}}"></view>
+        <text>{{item.name}}</text>
+      </view>
+      <!-- <text class="count">{{item.count}}</text> -->
+    </view>
+    <view class="movebar" style="{{moveBarStyle}}"></view>
+  </view>
+  <view class="container">
+    <block wx:if="{{list.length > 0}}">
+      <view wx:for="{{list}}" wx:key="item-{{item}}" class="floor-item">
+        <view class="title">{{item.Title}}F</view>
+        <split splitType="line" />
+        <view class="flex btn-row">
+          <button wx:for="{{item.infolosts}}" wx:for-item="house" wx:key="house" size="mini" class="{{house.classname}}" hover-class="hover" bindtap='goHouseDetail' data-houseid="{{house.id}}" data-houseno="{{house.name}}" data-statu="{{house.statu}}" data-floor="{{item.Title}}"
+            data-building="{{buildingName}}" data-unit="{{unitList[curUnitIndex]}}">{{house.name}}</button>
+          <!-- <button size="mini" class="warn" hover-class="hover" bindtap='goHouseDetail' data-houseid="1">456</button>
+        <button size="mini" class="success" hover-class="hover" bindtap='goHouseDetail' data-houseid="1">789</button>
+        <button size="mini" class="passed" hover-class="hover" bindtap='goHouseDetail' data-houseid="1">101</button> -->
+        </view>
+      </view>
+    </block>
+    <no-data wx:else />
+  </view>
+</view>

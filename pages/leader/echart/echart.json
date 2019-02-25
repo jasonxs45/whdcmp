@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "数据报表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "split": "/components/split/split",
+    "no-data": "/components/nodata/no-data",
+    "ec-canvas": "/components/ec-canvas/ec-canvas"
+  }
+}

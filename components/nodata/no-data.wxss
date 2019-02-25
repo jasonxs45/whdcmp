@@ -1,0 +1,15 @@
+.no-data{
+  text-align: center;
+  padding-top: 100rpx;
+}
+.no-data .image{
+  width: 280rpx;
+  height: 280rpx;
+}
+.no-data .text{
+  display: block;
+  font-size: 26rpx;
+  color: #666;
+  font-weight: 200;
+  margin-top: 40rpx;
+}
